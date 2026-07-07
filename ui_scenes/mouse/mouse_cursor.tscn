@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://fxku5nddarp8"]
+[gd_scene format=3 uid="uid://fxku5nddarp8"]
 
-[ext_resource type="Script" path="res://ui_scenes/mouse/mouse_cursor.gd" id="1_t6obd"]
+[ext_resource type="Script" uid="uid://csyk21mimud7d" path="res://ui_scenes/mouse/mouse_cursor.gd" id="1_t6obd"]
 [ext_resource type="Texture2D" uid="uid://23rqddatjku3" path="res://ui_scenes/mouse/tooltipBox.png" id="2_qcn8h"]
 [ext_resource type="FontFile" uid="uid://ukj8gv8ucqsg" path="res://font/goober_pixel.ttf" id="3_v627m"]
 
@@ -11,20 +11,20 @@ radius = 1.0
 font = ExtResource("3_v627m")
 font_size = 31
 
-[node name="MouseCursor" type="Node2D"]
+[node name="MouseCursor" type="Node2D" unique_id=1447611464]
 script = ExtResource("1_t6obd")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=1071004020]
 collision_layer = 2048
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=983389892]
 shape = SubResource("CircleShape2D_y1fm1")
 
-[node name="Tooltip" type="Node2D" parent="."]
+[node name="Tooltip" type="Node2D" parent="." unique_id=1978168752]
 z_index = 4096
 position = Vector2(-24, 46)
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Tooltip"]
+[node name="NinePatchRect" type="NinePatchRect" parent="Tooltip" unique_id=1384751297]
 offset_left = 9.0
 offset_top = -4.0
 offset_right = 168.0
@@ -36,7 +36,7 @@ patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
 
-[node name="Label" type="Label" parent="Tooltip"]
+[node name="Label" type="Label" parent="Tooltip" unique_id=399061037]
 offset_left = 7.0
 offset_top = 7.0
 offset_right = 173.0

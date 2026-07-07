@@ -8,15 +8,11 @@
 
 config_version=5
 
-[animation]
-
-compatibility/default_parent_skeleton_in_mesh_instance_3d=true
-
 [application]
 
 config/name="PNGTuberPlus"
 run/main_scene="res://main_scenes/main.tscn"
-config/features=PackedStringArray("4.6", "GL Compatibility")
+config/features=PackedStringArray("4.7", "GL Compatibility")
 run/max_fps=60
 boot_splash/bg_color=Color(0.0313726, 0.0313726, 0.0313726, 1)
 boot_splash/stretch_mode=0

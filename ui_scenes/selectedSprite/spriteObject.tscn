@@ -1,26 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4v5uvwp3q4dh"]
+[gd_scene format=3 uid="uid://b4v5uvwp3q4dh"]
 
-[ext_resource type="Script" path="res://ui_scenes/selectedSprite/spriteObject.gd" id="1_r8clt"]
+[ext_resource type="Script" uid="uid://menafhok8hkx" path="res://ui_scenes/selectedSprite/spriteObject.gd" id="1_r8clt"]
 [ext_resource type="Texture2D" uid="uid://b0qvkbedini2y" path="res://ui_scenes/selectedSprite/origin.png" id="4_i4lmg"]
 
-[node name="Sprite" type="Node2D" groups=["saved"]]
+[node name="Sprite" type="Node2D" unique_id=995992215 groups=["saved"]]
 script = ExtResource("1_r8clt")
 
-[node name="WobbleOrigin" type="Node2D" parent="."]
+[node name="WobbleOrigin" type="Node2D" parent="." unique_id=1604351215]
 
-[node name="Dragger" type="Node2D" parent="WobbleOrigin"]
+[node name="Dragger" type="Node2D" parent="WobbleOrigin" unique_id=1933027243]
 top_level = true
 
-[node name="DragOrigin" type="Node2D" parent="WobbleOrigin"]
+[node name="DragOrigin" type="Node2D" parent="WobbleOrigin" unique_id=752031269]
 
-[node name="Sprite" type="Sprite2D" parent="WobbleOrigin/DragOrigin"]
+[node name="Sprite" type="Sprite2D" parent="WobbleOrigin/DragOrigin" unique_id=2040071268]
 z_as_relative = false
 texture_repeat = 1
 
-[node name="Origin" type="Sprite2D" parent="WobbleOrigin/DragOrigin/Sprite"]
+[node name="Origin" type="Sprite2D" parent="WobbleOrigin/DragOrigin/Sprite" unique_id=1270613149]
 z_index = 2100
 position = Vector2(-16, -16)
 texture = ExtResource("4_i4lmg")
 centered = false
 
-[node name="Grab" type="Area2D" parent="WobbleOrigin/DragOrigin"]
+[node name="Grab" type="Area2D" parent="WobbleOrigin/DragOrigin" unique_id=1583155514]

@@ -1,0 +1,19 @@
+[gd_resource type="Theme" format=3 uid="uid://cas2f55e5bux8"]
+
+[ext_resource type="Texture2D" uid="uid://dktyrgbundggq" path="res://ui_scenes/volume/slider.png" id="1_ntbah"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k8mk1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o06gb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yi3nu"]
+
+[resource]
+HSlider/constants/grabber_offset = -5
+HSlider/icons/grabber = ExtResource("1_ntbah")
+HSlider/icons/grabber_disabled = ExtResource("1_ntbah")
+HSlider/icons/grabber_highlight = ExtResource("1_ntbah")
+HSlider/icons/tick = null
+HSlider/styles/grabber_area = SubResource("StyleBoxEmpty_k8mk1")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxEmpty_o06gb")
+HSlider/styles/slider = SubResource("StyleBoxEmpty_yi3nu")

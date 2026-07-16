@@ -3,6 +3,7 @@ extends Node2D
 var editMode = true
 
 #Node Reference
+@export var originMotion : Node2D
 @export var origin : Node2D
 @export var camera : Camera2D
 @export var controlPanel : Node2D
@@ -26,6 +27,22 @@ var editMode = true
 
 @export var shadow : Node2D 
 
+@export var volumeSlider : Slider
+@export var sensitiveSlider : Slider
+
+@export var failedToAddSpriteMessage : Node2D
+
+@export var zoomLabel : Label
+
+@export var screenCoverCollisionShape2D : CollisionShape2D
+
+@export var micInputSelect : Node2D
+
+@export var arrowsDown : Sprite2D
+@export var arrowsUp : Sprite2D
+
+@export var areaMoveEditMenuUp : Area2D
+@export var areaMoveEditMenuDown : Area2D
 
 #Scene Reference
 @onready var spriteObject = preload("res://ui_scenes/selectedSprite/spriteObject.tscn")
@@ -57,7 +74,7 @@ signal spriteVisToggles(keysPressed:Array)
 
 func _ready():
 	Global.main = self
-	Global.fail = $Failed
+	Global.fail = failedToAddSpriteMessage
 	
 	
 	Global.connect("startSpeaking",onSpeak)
@@ -71,8 +88,8 @@ func _ready():
 	else:
 		_on_load_dialog_file_selected(Saving.settings["lastAvatar"])
 		
-		$ControlPanel/volumeSlider.value = Saving.settings["volume"]
-		$ControlPanel/sensitiveSlider.value = Saving.settings["sense"]
+		volumeSlider.value = Saving.settings["volume"]
+		sensitiveSlider.value = Saving.settings["sense"]
 		
 		get_window().size = str_to_var(Saving.settings["windowSize"])
 		
@@ -238,7 +255,7 @@ func zoomScene():
 				scaleOverall -= 10
 				changeZoom()
 	
-	$ControlPanel/ZoomLabel.modulate.a = lerp($ControlPanel/ZoomLabel.modulate.a,0.0,0.02)
+	zoomLabel.modulate.a = lerp(zoomLabel.modulate.a,0.0,0.02)
 	
 func changeZoom():
 	var newZoom = Vector2(1.0,1.0) / camera.zoom
@@ -250,8 +267,8 @@ func changeZoom():
 	pushUpdates.scale = newZoom
 	Global.mouse.scale = newZoom
 
-	$ControlPanel/ZoomLabel.modulate.a = 6.0
-	$ControlPanel/ZoomLabel.text = "Zoom : " + str(scaleOverall) + "%"
+	zoomLabel.modulate.a = 6.0
+	zoomLabel.text = "Zoom : " + str(scaleOverall) + "%"
 	
 	Global.pushUpdate("Set zoom to " + str(scaleOverall) + "%")
 	onWindowSizeChange()
@@ -308,11 +325,11 @@ func _on_file_dialog_file_selected(path):
 	add_image(path)
 
 func _on_save_button_pressed():
-	$SaveDialog.visible = true
+	saveDialog.visible = true
 	
 
 func _on_load_button_pressed():
-	$LoadDialog.visible = true
+	loadDialog.visible = true
 
 #LOAD AVATAR
 func _on_load_dialog_file_selected(path):
@@ -323,7 +340,7 @@ func _on_load_dialog_file_selected(path):
 	
 	origin.queue_free()
 	var new = Node2D.new()
-	$OriginMotion.add_child(new)
+	originMotion.add_child(new)
 	origin = new
 	
 	Global.toggleMicrophone(true)
@@ -538,7 +555,7 @@ func _on_twitter_pressed():
 func _on_replace_button_pressed():
 	if Global.heldSprite == null:
 		return
-	$ReplaceDialog.visible = true
+	replaceDialog.visible = true
 
 func _on_replace_dialog_file_selected(path):
 	Global.heldSprite.replaceSprite(path)
@@ -546,7 +563,7 @@ func _on_replace_dialog_file_selected(path):
 	Global.pushUpdate("Replacing sprite with: " + path)
 
 func _on_replace_dialog_visibility_changed():
-	$EditControls/ScreenCover/CollisionShape2D.disabled = !$ReplaceDialog.visible
+	screenCoverCollisionShape2D.disabled = !replaceDialog.visible
 
 
 func _on_duplicate_button_pressed():
@@ -638,34 +655,26 @@ func moveSpriteMenu(delta):
 	
 	var windowLength = 1250 #1187
 	
-	$ViewerArrows/Arrows.position.y =  size.y - 25
+	arrowsDown.position.y =  size.y - 25
 	
 	if !Global.spriteEdit.visible:
-		$ViewerArrows/Arrows.visible = false
-		$ViewerArrows/Arrows2.visible = false
+		arrowsDown.visible = false
+		arrowsUp.visible = false
 		return
 	
 	if size.y > windowLength+50:
 		Global.spriteEdit.position.y = 66
 		
-		$ViewerArrows/Arrows.visible = false
-		$ViewerArrows/Arrows2.visible = false
-		
+		arrowsDown.visible = false
+		arrowsUp.visible = false
 		return
 	
-	if Global.spriteEdit.position.y < 16:
-		$ViewerArrows/Arrows2.visible = true
-	else:
-		$ViewerArrows/Arrows2.visible = false
-	if Global.spriteEdit.position.y > size.y-windowLength+2:
-		$ViewerArrows/Arrows.visible = true
-	else:
-		$ViewerArrows/Arrows.visible = false
+	arrowsUp.visible = Global.spriteEdit.position.y < 16
+	arrowsDown.visible = Global.spriteEdit.position.y > size.y-windowLength+2
 
-	
-	if $EditControls/MoveMenuUp.overlaps_area(Global.mouse.area):
+	if areaMoveEditMenuUp.overlaps_area(Global.mouse.area):
 		Global.spriteEdit.position.y += (delta*432.0)
-	elif $EditControls/MoveMenuDown.overlaps_area(Global.mouse.area):
+	elif areaMoveEditMenuDown.overlaps_area(Global.mouse.area):
 		Global.spriteEdit.position.y -= (delta*432.0)
 	
 	if Global.spriteEdit.position.y > 66:
@@ -677,7 +686,7 @@ func moveSpriteMenu(delta):
 	
 #UNAMED BUT THIS IS THE MICROPHONE MENU BUTTON
 func _on_button_pressed():
-	$ControlPanel/MicInputSelect.visible = !$ControlPanel/MicInputSelect.visible
+	micInputSelect.visible = !micInputSelect.visible
 	settingsMenu.visible = false
 
 

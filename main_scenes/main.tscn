@@ -73,8 +73,9 @@ shadow_color = Color(0, 0, 0, 0.835294)
 font = ExtResource("14_62jp4")
 font_size = 31
 
-[node name="Main" type="Node2D" unique_id=60720459 node_paths=PackedStringArray("origin", "camera", "controlPanel", "editControls", "tutorial", "spriteViewer", "viewerArrows", "spriteList", "fileDialog", "replaceDialog", "saveDialog", "loadDialog", "audioDialog", "lines", "settingsMenu", "pushUpdates", "shadow")]
+[node name="Main" type="Node2D" unique_id=60720459 node_paths=PackedStringArray("originMotion", "origin", "camera", "controlPanel", "editControls", "tutorial", "spriteViewer", "viewerArrows", "spriteList", "fileDialog", "replaceDialog", "saveDialog", "loadDialog", "audioDialog", "lines", "settingsMenu", "pushUpdates", "shadow", "volumeSlider", "sensitiveSlider", "failedToAddSpriteMessage", "zoomLabel", "screenCoverCollisionShape2D", "micInputSelect", "arrowsDown", "arrowsUp", "areaMoveEditMenuUp", "areaMoveEditMenuDown")]
 script = ExtResource("1_06alx")
+originMotion = NodePath("OriginMotion")
 origin = NodePath("OriginMotion/Origin")
 camera = NodePath("Camera2D")
 controlPanel = NodePath("ControlPanel")
@@ -92,6 +93,16 @@ lines = NodePath("Lines")
 settingsMenu = NodePath("ControlPanel/SettingsMenu")
 pushUpdates = NodePath("PushUpdates")
 shadow = NodePath("shadowSprite")
+volumeSlider = NodePath("ControlPanel/volumeSlider")
+sensitiveSlider = NodePath("ControlPanel/sensitiveSlider")
+failedToAddSpriteMessage = NodePath("FailedToAddSpriteMessage")
+zoomLabel = NodePath("ControlPanel/ZoomLabel")
+screenCoverCollisionShape2D = NodePath("EditControls/ScreenCover/ScreenCoverCollisionShape2D")
+micInputSelect = NodePath("ControlPanel/MicInputSelect")
+arrowsDown = NodePath("ViewerArrows/Arrows")
+arrowsUp = NodePath("ViewerArrows/Arrows2")
+areaMoveEditMenuUp = NodePath("EditControls/MoveMenuUp")
+areaMoveEditMenuDown = NodePath("EditControls/MoveMenuDown")
 
 [node name="MouseCursor" parent="." unique_id=1847920155 instance=ExtResource("8_fd33p")]
 z_index = 4090
@@ -437,7 +448,7 @@ shape = SubResource("RectangleShape2D_f4sd5")
 [node name="ScreenCover" type="Area2D" parent="EditControls" unique_id=808018584 groups=["penis"]]
 visible = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EditControls/ScreenCover" unique_id=672640469]
+[node name="ScreenCoverCollisionShape2D" type="CollisionShape2D" parent="EditControls/ScreenCover" unique_id=672640469]
 position = Vector2(2132, 928.5)
 shape = SubResource("RectangleShape2D_ebmai")
 disabled = true
@@ -575,16 +586,16 @@ filters = PackedStringArray("*.wav", "*.ogg", "*.mp3")
 z_index = 4096
 position = Vector2(-28, 11)
 
-[node name="Failed" type="Node2D" parent="." unique_id=964054184]
+[node name="FailedToAddSpriteMessage" type="Node2D" parent="." unique_id=964054184]
 visible = false
 z_index = 4096
 position = Vector2(16, 41)
 
-[node name="Failed2" type="Sprite2D" parent="Failed" unique_id=1536022259]
+[node name="Failed2" type="Sprite2D" parent="FailedToAddSpriteMessage" unique_id=1536022259]
 position = Vector2(335, 315)
 texture = ExtResource("21_6nw1o")
 
-[node name="Label" type="Label" parent="Failed" unique_id=1687802597]
+[node name="Label" type="Label" parent="FailedToAddSpriteMessage" unique_id=1687802597]
 offset_left = 205.0
 offset_top = 263.0
 offset_right = 458.0
@@ -592,7 +603,7 @@ offset_bottom = 297.0
 text = "FAILED TO ADD SPRITE"
 label_settings = SubResource("LabelSettings_5yofs")
 
-[node name="type" type="Label" parent="Failed" unique_id=1056757034]
+[node name="type" type="Label" parent="FailedToAddSpriteMessage" unique_id=1056757034]
 offset_left = 165.0
 offset_top = 329.0
 offset_right = 507.0

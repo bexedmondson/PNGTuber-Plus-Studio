@@ -73,8 +73,25 @@ shadow_color = Color(0, 0, 0, 0.835294)
 font = ExtResource("14_62jp4")
 font_size = 31
 
-[node name="Main" type="Node2D" unique_id=60720459]
+[node name="Main" type="Node2D" unique_id=60720459 node_paths=PackedStringArray("origin", "camera", "controlPanel", "editControls", "tutorial", "spriteViewer", "viewerArrows", "spriteList", "fileDialog", "replaceDialog", "saveDialog", "loadDialog", "audioDialog", "lines", "settingsMenu", "pushUpdates", "shadow")]
 script = ExtResource("1_06alx")
+origin = NodePath("OriginMotion/Origin")
+camera = NodePath("Camera2D")
+controlPanel = NodePath("ControlPanel")
+editControls = NodePath("EditControls")
+tutorial = NodePath("Tutorial")
+spriteViewer = NodePath("EditControls/SpriteViewer")
+viewerArrows = NodePath("ViewerArrows")
+spriteList = NodePath("EditControls/SpriteList")
+fileDialog = NodePath("FileDialog")
+replaceDialog = NodePath("ReplaceDialog")
+saveDialog = NodePath("SaveDialog")
+loadDialog = NodePath("LoadDialog")
+audioDialog = NodePath("AudioFileDialog")
+lines = NodePath("Lines")
+settingsMenu = NodePath("ControlPanel/SettingsMenu")
+pushUpdates = NodePath("PushUpdates")
+shadow = NodePath("shadowSprite")
 
 [node name="MouseCursor" parent="." unique_id=1847920155 instance=ExtResource("8_fd33p")]
 z_index = 4090

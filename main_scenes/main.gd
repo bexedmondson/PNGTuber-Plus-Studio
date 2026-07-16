@@ -3,28 +3,28 @@ extends Node2D
 var editMode = true
 
 #Node Reference
-@onready var origin = $OriginMotion/Origin
-@onready var camera = $Camera2D
-@onready var controlPanel = $ControlPanel
-@onready var editControls = $EditControls
-@onready var tutorial = $Tutorial
-@onready var spriteViewer = $EditControls/SpriteViewer
-@onready var viewerArrows = $ViewerArrows
-@onready var spriteList = $EditControls/SpriteList
+@export var origin : Node2D
+@export var camera : Camera2D
+@export var controlPanel : Node2D
+@export var editControls : Node2D 
+@export var tutorial : Node2D
+@export var spriteViewer : Node2D 
+@export var viewerArrows : Node2D
+@export var spriteList : Node2D
 
-@onready var fileDialog = $FileDialog
-@onready var replaceDialog = $ReplaceDialog
-@onready var saveDialog = $SaveDialog
-@onready var loadDialog = $LoadDialog
-@onready var audioDialog = $AudioFileDialog
+@export var fileDialog : FileDialog
+@export var replaceDialog : FileDialog
+@export var saveDialog : FileDialog 
+@export var loadDialog : FileDialog
+@export var audioDialog : FileDialog
 
-@onready var lines = $Lines
+@export var lines : Node2D
 
-@onready var settingsMenu = $ControlPanel/SettingsMenu
+@export var settingsMenu : Node2D 
 
-@onready var pushUpdates = $PushUpdates
+@export var pushUpdates : Node2D
 
-@onready var shadow = $shadowSprite
+@export var shadow : Node2D 
 
 
 #Scene Reference

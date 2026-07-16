@@ -54,7 +54,6 @@ signal emptiedCapture
 signal pressedKey
 var costumeKeys = ["1","2","3","4","5","6","7","8","9","0"]
 signal spriteVisToggles(keysPressed:Array)
-signal fatfuckingballs
 
 func _ready():
 	Global.main = self

@@ -1,6 +1,7 @@
-extends Node2D
+class_name PushUpdates
+extends Control
 
-@onready var vbox = $VBoxContainer
+@export var vbox : VBoxContainer
 
 var tick = 0
 

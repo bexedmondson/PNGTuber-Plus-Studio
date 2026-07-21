@@ -1,14 +1,15 @@
-extends Node2D
+class_name Tutorial
+extends Control
 
-@onready var rect = $NinePatchRect
+@export var tutorialPopupRect : NinePatchRect
 
-@onready var tween = null
+var tween = null
 
 func _on_button_pressed():
 	if tween != null:
 		tween.stop()
-	rect.visible = !rect.visible
-	rect.scale = Vector2(0.0,0.0)
+	tutorialPopupRect.visible = !tutorialPopupRect.visible
+	tutorialPopupRect.scale = Vector2(0.0,0.0)
 	tween = get_tree().create_tween()
-	tween.tween_property(rect,"scale",Vector2(1,1),0.5).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
+	tween.tween_property(tutorialPopupRect,"scale",Vector2(1,1),0.5).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
 	

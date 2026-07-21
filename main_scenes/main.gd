@@ -8,7 +8,7 @@ var editMode = true
 @export var camera : Camera2D
 @export var controlPanel : Node2D
 @export var editControls : Node2D 
-@export var tutorial : Node2D
+@export var tutorial : Control
 @export var spriteViewer : Node2D 
 @export var viewerArrows : Node2D
 @export var spriteList : Node2D
@@ -23,7 +23,7 @@ var editMode = true
 
 @export var settingsMenu : Node2D 
 
-@export var pushUpdates : Node2D
+@export var pushUpdates : Control
 
 @export var shadow : Node2D 
 
@@ -681,11 +681,9 @@ func moveSpriteMenu(delta):
 		Global.spriteEdit.position.y = 66
 	elif Global.spriteEdit.position.y < size.y-windowLength:
 		Global.spriteEdit.position.y = size.y-windowLength
-	
 
-	
-#UNAMED BUT THIS IS THE MICROPHONE MENU BUTTON
-func _on_button_pressed():
+
+func _on_microphone_menu_button_pressed():
 	micInputSelect.visible = !micInputSelect.visible
 	settingsMenu.visible = false
 

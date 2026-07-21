@@ -1,7 +1,8 @@
+class_name Chain
 extends Node2D
 
-@onready var line = $Line2D
-@onready var plug = $Plug
+@export var line : Line2D
+@export var plug : Sprite2D
 
 func _ready():
 	Global.chain = self

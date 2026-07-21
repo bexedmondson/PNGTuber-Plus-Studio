@@ -62,16 +62,16 @@ size = Vector2(4294, 1879)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1hek3"]
 size = Vector2(245, 116)
 
+[sub_resource type="LabelSettings" id="LabelSettings_5yofs"]
+font = ExtResource("14_62jp4")
+font_size = 31
+
 [sub_resource type="LabelSettings" id="LabelSettings_iu6ix"]
 line_spacing = 0.0
 font = ExtResource("14_62jp4")
 font_size = 31
 shadow_size = 3
 shadow_color = Color(0, 0, 0, 0.835294)
-
-[sub_resource type="LabelSettings" id="LabelSettings_5yofs"]
-font = ExtResource("14_62jp4")
-font_size = 31
 
 [node name="Main" type="Node2D" unique_id=60720459 node_paths=PackedStringArray("originMotion", "origin", "camera", "controlPanel", "editControls", "tutorial", "spriteViewer", "viewerArrows", "spriteList", "fileDialog", "replaceDialog", "saveDialog", "loadDialog", "audioDialog", "lines", "settingsMenu", "pushUpdates", "shadow", "volumeSlider", "sensitiveSlider", "failedToAddSpriteMessage", "zoomLabel", "screenCoverCollisionShape2D", "micInputSelect", "arrowsDown", "arrowsUp", "areaMoveEditMenuUp", "areaMoveEditMenuDown")]
 script = ExtResource("1_06alx")
@@ -80,7 +80,7 @@ origin = NodePath("OriginMotion/Origin")
 camera = NodePath("Camera2D")
 controlPanel = NodePath("ControlPanel")
 editControls = NodePath("EditControls")
-tutorial = NodePath("Tutorial")
+tutorial = NodePath("CanvasLayer/Tutorial")
 spriteViewer = NodePath("EditControls/SpriteViewer")
 viewerArrows = NodePath("ViewerArrows")
 spriteList = NodePath("EditControls/SpriteList")
@@ -91,7 +91,7 @@ loadDialog = NodePath("LoadDialog")
 audioDialog = NodePath("AudioFileDialog")
 lines = NodePath("Lines")
 settingsMenu = NodePath("ControlPanel/SettingsMenu")
-pushUpdates = NodePath("PushUpdates")
+pushUpdates = NodePath("CanvasLayer/PushUpdates")
 shadow = NodePath("shadowSprite")
 volumeSlider = NodePath("ControlPanel/volumeSlider")
 sensitiveSlider = NodePath("ControlPanel/sensitiveSlider")
@@ -114,6 +114,7 @@ z_as_relative = false
 script = ExtResource("7_2u7em")
 
 [node name="v" type="Line2D" parent="Lines" unique_id=1794998505]
+points = PackedVector2Array(696, 660, 687, 645)
 width = 2.0
 default_color = Color(0.137255, 0.137255, 0.137255, 1)
 
@@ -479,60 +480,6 @@ shape = SubResource("RectangleShape2D_1hek3")
 z_index = 4065
 position = Vector2(486, 12)
 
-[node name="Tutorial" type="Node2D" parent="." unique_id=682055446]
-z_index = 4096
-position = Vector2(720, 720)
-script = ExtResource("27_ivpmi")
-
-[node name="Info" type="Sprite2D" parent="Tutorial" unique_id=1523297740]
-z_index = -3
-position = Vector2(-19, -21)
-texture = ExtResource("27_og5v1")
-
-[node name="Button" type="Button" parent="Tutorial/Info" unique_id=1167810444]
-offset_left = -14.0
-offset_top = -14.0
-offset_right = 14.0
-offset_bottom = 14.0
-flat = true
-
-[node name="NinePatchRect" type="NinePatchRect" parent="Tutorial" unique_id=1174239878]
-visible = false
-offset_left = -461.0
-offset_top = -469.0
-offset_right = -5.0
-offset_bottom = -42.0
-pivot_offset = Vector2(455, 367)
-mouse_filter = 0
-texture = ExtResource("27_4n53v")
-region_rect = Rect2(0, 0, 48, 48)
-patch_margin_left = 8
-patch_margin_top = 8
-patch_margin_right = 8
-patch_margin_bottom = 8
-
-[node name="Label" type="Label" parent="Tutorial/NinePatchRect" unique_id=1895736113]
-layout_mode = 0
-offset_left = 15.0
-offset_top = 14.0
-offset_right = 448.0
-offset_bottom = 386.0
-text = "-Mouse click or scroll to select sprite
--Hold middle mouse wheel to move avatar
--WASD to move sprite 
--Hold O and WASD to move sprite origin
--Q and E to change sprite layer / z index
--Press 0-9 keys to change costume layer
--ESC to open user folder in file explorer
--P to enter link sprite mode
--U to quickly unlink sprite
--R to reload all sprites and reset animation
--CTRL + SCROLL to change zoom level
--CTRL + L to save avatar sprites to folder
--M to toggle your microphone
-"
-label_settings = SubResource("LabelSettings_iu6ix")
-
 [node name="FileDialog" type="FileDialog" parent="." unique_id=213938103]
 oversampling_override = 1.0
 title = "Add Image"
@@ -630,15 +577,78 @@ position = Vector2(360, 360)
 [node name="BackgroundInputCapture" type="BackgroundInputCapture" parent="." unique_id=1620033436]
 position = Vector2(-28, -28)
 
-[node name="PushUpdates" parent="." unique_id=1500772835 instance=ExtResource("30_q43vl")]
-z_index = 4090
-position = Vector2(0, 720)
-
 [node name="shadowSprite" type="Sprite2D" parent="." unique_id=1436150476]
 modulate = Color(0, 0, 0, 0.478431)
 z_index = -4096
 
-[connection signal="pressed" from="ControlPanel/MicButtong/Button" to="." method="_on_button_pressed"]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1769298162]
+
+[node name="PushUpdates" parent="CanvasLayer" unique_id=1500772835 instance=ExtResource("30_q43vl")]
+z_index = 4090
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+
+[node name="Tutorial" type="Control" parent="CanvasLayer" unique_id=305429640 node_paths=PackedStringArray("tutorialPopupRect")]
+z_index = 4096
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("27_ivpmi")
+tutorialPopupRect = NodePath("TutorialInfoBackground")
+
+[node name="TutorialInfoBackground" type="NinePatchRect" parent="CanvasLayer/Tutorial" unique_id=1174239878]
+visible = false
+layout_mode = 0
+offset_left = -461.0
+offset_top = -469.0
+offset_right = -5.0
+offset_bottom = -42.0
+pivot_offset = Vector2(455, 367)
+mouse_filter = 0
+texture = ExtResource("27_4n53v")
+region_rect = Rect2(0, 0, 48, 48)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Label" type="Label" parent="CanvasLayer/Tutorial/TutorialInfoBackground" unique_id=1895736113]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 14.0
+offset_right = 448.0
+offset_bottom = 386.0
+text = "-Mouse click or scroll to select sprite
+-Hold middle mouse wheel to move avatar
+-WASD to move sprite 
+-Hold O and WASD to move sprite origin
+-Q and E to change sprite layer / z index
+-Press 0-9 keys to change costume layer
+-ESC to open user folder in file explorer
+-P to enter link sprite mode
+-U to quickly unlink sprite
+-R to reload all sprites and reset animation
+-CTRL + SCROLL to change zoom level
+-CTRL + L to save avatar sprites to folder
+-M to toggle your microphone
+"
+label_settings = SubResource("LabelSettings_iu6ix")
+
+[node name="InfoButton" type="Button" parent="CanvasLayer/Tutorial" unique_id=1167810444]
+layout_mode = 0
+offset_left = -40.0
+offset_top = -40.0
+icon = ExtResource("27_og5v1")
+flat = true
+
+[connection signal="pressed" from="ControlPanel/MicButtong/Button" to="." method="_on_microphone_menu_button_pressed"]
 [connection signal="pressed" from="ControlPanel/SettingsButton/settingsButtons" to="." method="_on_settings_buttons_pressed"]
 [connection signal="pressed" from="ControlPanel/Edit/Button" to="." method="swapMode"]
 [connection signal="pressed" from="ControlPanel/Links/kofi" to="." method="_on_kofi_pressed"]
@@ -650,7 +660,6 @@ z_index = -4096
 [connection signal="pressed" from="EditControls/Load/loadButton" to="." method="_on_load_button_pressed"]
 [connection signal="pressed" from="EditControls/ReplaceSprite/replaceButton" to="." method="_on_replace_button_pressed"]
 [connection signal="pressed" from="EditControls/DuplicateSprite/duplicateButton" to="." method="_on_duplicate_button_pressed"]
-[connection signal="pressed" from="Tutorial/Info/Button" to="Tutorial" method="_on_button_pressed"]
 [connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
 [connection signal="file_selected" from="ReplaceDialog" to="." method="_on_replace_dialog_file_selected"]
 [connection signal="visibility_changed" from="ReplaceDialog" to="." method="_on_replace_dialog_visibility_changed"]
@@ -659,3 +668,4 @@ z_index = -4096
 [connection signal="file_selected" from="AudioFileDialog" to="." method="_on_audio_file_dialog_file_selected"]
 [connection signal="bg_key_pressed" from="BackgroundInputCapture" to="." method="bgInputSprite"]
 [connection signal="bg_key_pressed" from="BackgroundInputCapture" to="." method="_on_background_input_capture_bg_key_pressed"]
+[connection signal="pressed" from="CanvasLayer/Tutorial/InfoButton" to="CanvasLayer/Tutorial" method="_on_button_pressed"]

@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://goff8ioh380e" path="res://ui_scenes/button sprites/buttonBack.png" id="4_xenui"]
 [ext_resource type="Texture2D" uid="uid://da4jthat2oas4" path="res://ui_scenes/button sprites/fancy.png" id="5_75a7k"]
 [ext_resource type="Texture2D" uid="uid://djf1mbv36vr68" path="res://ui_scenes/microphoneSelect/micButtong.png" id="5_fo0ai"]
-[ext_resource type="Script" uid="uid://dnp5y0x0kg0l6" path="res://main_scenes/OriginLineDrawing.gd" id="7_2u7em"]
 [ext_resource type="Texture2D" uid="uid://cg3nqowbcixpy" path="res://ui_scenes/volume/barOver.png" id="7_ldv55"]
 [ext_resource type="Texture2D" uid="uid://cpwoby3dan2qc" path="res://ui_scenes/settings/settingsWheel.png" id="7_prm87"]
 [ext_resource type="Texture2D" uid="uid://7277tveyaer1" path="res://ui_scenes/volume/bar.png" id="8_8ojw0"]
@@ -126,7 +125,6 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 1
-script = ExtResource("7_2u7em")
 
 [node name="VSeparator" type="VSeparator" parent="EditBackgroundCanvasLayer/Lines" unique_id=1937493947]
 layout_mode = 1

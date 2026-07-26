@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://cxhfb4qhi2y44"]
+
+[ext_resource type="Script" uid="uid://cyhd70ip0a5kx" path="res://ui_scenes/settings/CostumeButton.gd" id="1_mpue2"]
+[ext_resource type="Texture2D" uid="uid://gflmeocxfnrq" path="res://ui_scenes/settings/deleteHotkey.png" id="1_p0hx2"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qvowd"]
+load_path = "res://.godot/imported/tooltipBox.png-fbd17edca11f36259ef2d1e9921dc393.ctex"
+
+[node name="CostumeButton" type="Button" unique_id=29525414 node_paths=PackedStringArray("label")]
+custom_minimum_size = Vector2(0, 37.125)
+size_flags_horizontal = 3
+flat = true
+script = ExtResource("1_mpue2")
+label = NodePath("Label")
+
+[node name="rect" type="NinePatchRect" parent="." unique_id=48925403]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+texture = SubResource("CompressedTexture2D_qvowd")
+region_rect = Rect2(0, 0, 48, 48)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Label" type="Label" parent="." unique_id=1542996374]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 4.0
+offset_right = 202.0
+offset_bottom = 30.0
+text = "costume 1 key: \"1\""
+vertical_alignment = 1
+
+[node name="delete1" type="Button" parent="." unique_id=1915492293]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 5.0
+offset_right = 221.0
+offset_bottom = 16.0
+flat = true
+
+[node name="DeleteHotkey" type="Sprite2D" parent="delete1" unique_id=1634763887]
+position = Vector2(-2, -2)
+texture = ExtResource("1_p0hx2")
+centered = false
+
+[connection signal="pressed" from="." to="." method="_pressed"]
+[connection signal="pressed" from="delete1" to="." method="_on_delete_pressed"]

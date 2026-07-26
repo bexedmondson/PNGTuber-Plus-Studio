@@ -1,11 +1,13 @@
+class_name SettingsMenu
 extends Node2D
 
 var awaitingCostumeInput = -1
 
 var hasMouse = false
 
-func setvalues():
-	
+@export var costumeButtons : Array[CostumeButton]
+
+func setup():
 	$Background/ColorPickerButton.color = Global.backgroundColor
 	if Global.backgroundColor == Color(0.0,0.0,0.0,0.0):
 		$Background/ColorPickerButton.color = Color(1.0,1.0,1.0,1.0)
@@ -32,11 +34,9 @@ func setvalues():
 	
 	$bounceOnCostume/costumeCheck.button_pressed = Global.main.bounceOnCostumeChange
 	
-	var costumeLabels = [$CostumeInputs/ScrollContainer/VBoxContainer/costumeButton1/Label,$CostumeInputs/ScrollContainer/VBoxContainer/costumeButton2/Label,$CostumeInputs/ScrollContainer/VBoxContainer/costumeButton3/Label,$CostumeInputs/ScrollContainer/VBoxContainer/costumeButton4/Label,$CostumeInputs/ScrollContainer/VBoxContainer/costumeButton5/Label,$CostumeInputs/ScrollContainer/VBoxContainer/costumeButton6/Label,$CostumeInputs/ScrollContainer/VBoxContainer/costumeButton7/Label,$CostumeInputs/ScrollContainer/VBoxContainer/costumeButton8/Label,$CostumeInputs/ScrollContainer/VBoxContainer/costumeButton9/Label,$CostumeInputs/ScrollContainer/VBoxContainer/costumeButton10/Label,]
-	var tag = 1
-	for label in costumeLabels:
-		label.text = "costume " + str(tag) + " key: \"" + Global.main.costumeKeys[tag-1] + "\""
-		tag += 1
+	for costumeButton in costumeButtons:
+		costumeButton.setup()
+	
 	
 func _on_color_picker_button_color_changed(color):
 	get_viewport().transparent_bg = false
@@ -137,38 +137,6 @@ func costumeButtonsPressed(label,id):
 	await Global.main.emptiedCapture
 	awaitingCostumeInput = -1
 
-func _on_costume_button_1_pressed():
-	var label = $CostumeInputs/ScrollContainer/VBoxContainer/costumeButton1/Label
-	costumeButtonsPressed(label,1)
-func _on_costume_button_2_pressed():
-	var label = $CostumeInputs/ScrollContainer/VBoxContainer/costumeButton2/Label
-	costumeButtonsPressed(label,2)
-func _on_costume_button_3_pressed():
-	var label = $CostumeInputs/ScrollContainer/VBoxContainer/costumeButton3/Label
-	costumeButtonsPressed(label,3)
-func _on_costume_button_4_pressed():
-	var label = $CostumeInputs/ScrollContainer/VBoxContainer/costumeButton4/Label
-	costumeButtonsPressed(label,4)
-func _on_costume_button_5_pressed():
-	var label = $CostumeInputs/ScrollContainer/VBoxContainer/costumeButton5/Label
-	costumeButtonsPressed(label,5)
-func _on_costume_button_6_pressed():
-	var label = $CostumeInputs/ScrollContainer/VBoxContainer/costumeButton6/Label
-	costumeButtonsPressed(label,6)
-func _on_costume_button_7_pressed():
-	var label = $CostumeInputs/ScrollContainer/VBoxContainer/costumeButton7/Label
-	costumeButtonsPressed(label,7)
-func _on_costume_button_8_pressed():
-	var label = $CostumeInputs/ScrollContainer/VBoxContainer/costumeButton8/Label
-	costumeButtonsPressed(label,8)
-func _on_costume_button_9_pressed():
-	var label = $CostumeInputs/ScrollContainer/VBoxContainer/costumeButton9/Label
-	costumeButtonsPressed(label,9)
-func _on_costume_button_10_pressed():
-	var label = $CostumeInputs/ScrollContainer/VBoxContainer/costumeButton10/Label
-	costumeButtonsPressed(label,10)
-
-
 func _on_blink_speed_value_changed(value):
 	if value == 0:
 		Global.blinkSpeed = 0.0
@@ -203,46 +171,6 @@ func deleteKey(label,id):
 	label.text = "costume " + str(id) + " key: \"" + Global.main.costumeKeys[id-1] + "\""
 	Global.pushUpdate("Deleted costume hotkey " + str(id) + ".")
 	
-func _on_delete_1_pressed():
-	var label = $CostumeInputs/ScrollContainer/VBoxContainer/costumeButton1/Label
-	deleteKey(label,1)
-
-func _on_delete_2_pressed():
-	var label = $CostumeInputs/ScrollContainer/VBoxContainer/costumeButton2/Label
-	deleteKey(label,2)
-
-func _on_delete_3_pressed():
-	var label = $CostumeInputs/ScrollContainer/VBoxContainer/costumeButton3/Label
-	deleteKey(label,3)
-
-func _on_delete_4_pressed():
-	var label = $CostumeInputs/ScrollContainer/VBoxContainer/costumeButton4/Label
-	deleteKey(label,4)
-
-func _on_delete_5_pressed():
-	var label = $CostumeInputs/ScrollContainer/VBoxContainer/costumeButton5/Label
-	deleteKey(label,5)
-
-func _on_delete_6_pressed():
-	var label = $CostumeInputs/ScrollContainer/VBoxContainer/costumeButton6/Label
-	deleteKey(label,6)
-
-func _on_delete_7_pressed():
-	var label = $CostumeInputs/ScrollContainer/VBoxContainer/costumeButton7/Label
-	deleteKey(label,7)
-
-func _on_delete_8_pressed():
-	var label = $CostumeInputs/ScrollContainer/VBoxContainer/costumeButton8/Label
-	deleteKey(label,8)
-
-func _on_delete_9_pressed():
-	var label = $CostumeInputs/ScrollContainer/VBoxContainer/costumeButton9/Label
-	deleteKey(label,9)
-
-func _on_delete_10_pressed():
-	var label = $CostumeInputs/ScrollContainer/VBoxContainer/costumeButton10/Label
-	deleteKey(label,10)
-
 
 func _on_truncate_check_toggled(button_pressed: bool) -> void:
 	Global.truncating = button_pressed

@@ -21,7 +21,7 @@ var editMode = true
 
 @export var lines : Control
 
-@export var settingsMenu : Node2D 
+@export var settingsMenu : SettingsMenu 
 
 @export var pushUpdates : Control
 
@@ -142,7 +142,7 @@ func _ready():
 		
 	RenderingServer.set_default_clear_color(Global.backgroundColor)
 	swapMode()
-	settingsMenu.setvalues()
+	settingsMenu.setup()
 	changeCostume(1)
 	
 	var s = get_viewport().get_visible_rect().size
@@ -228,8 +228,6 @@ func onWindowSizeChange():
 	Saving.settings["windowSize"] = var_to_str(get_window().size)
 	var s = get_viewport().get_visible_rect().size
 	origin.position = s*0.5
-	
-	lines.drawLine()
 	
 	camera.position = origin.position
 	controlPanel.position = camera.position + (s/(camera.zoom*2.0))

@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 #Node Reference
 @onready var spriteSpin = $SubViewportContainer/SubViewport/Node3D/Sprite3D

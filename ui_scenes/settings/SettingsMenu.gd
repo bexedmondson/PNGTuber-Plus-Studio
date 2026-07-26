@@ -9,8 +9,8 @@ var hasMouse = false
 
 func setup():
 	$Background/ColorPickerButton.color = Global.backgroundColor
-	if Global.backgroundColor == Color(0.0,0.0,0.0,0.0):
-		$Background/ColorPickerButton.color = Color(1.0,1.0,1.0,1.0)
+	if Global.backgroundColor == Color.TRANSPARENT:
+		$Background/ColorPickerButton.color = Color.WHITE
 	
 	
 	$MaxFPS/fpslabel.text = str(Engine.max_fps)

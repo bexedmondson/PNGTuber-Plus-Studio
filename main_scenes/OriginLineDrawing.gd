@@ -1,7 +1,8 @@
-extends Node2D
+class_name OriginLineDrawing
+extends Control
 
-@onready var h = $h
-@onready var v = $v
+@export var h : Line2D
+@export var v : Line2D
 
 func drawLine():
 	var s = get_viewport().get_visible_rect().size

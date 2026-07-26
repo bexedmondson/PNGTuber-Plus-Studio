@@ -19,7 +19,7 @@ var editMode = true
 @export var loadDialog : FileDialog
 @export var audioDialog : FileDialog
 
-@export var lines : Node2D
+@export var lines : Control
 
 @export var settingsMenu : Node2D 
 
@@ -30,7 +30,7 @@ var editMode = true
 @export var volumeSlider : Slider
 @export var sensitiveSlider : Slider
 
-@export var failedToAddSpriteMessage : Node2D
+@export var failedToAddSpriteMessage : Control
 
 @export var zoomLabel : Label
 
@@ -229,7 +229,6 @@ func onWindowSizeChange():
 	var s = get_viewport().get_visible_rect().size
 	origin.position = s*0.5
 	
-	lines.position = s*0.5
 	lines.drawLine()
 	
 	camera.position = origin.position

@@ -77,25 +77,25 @@ func _on_confirm_pressed():
 
 func _on_green_button_pressed():
 	get_viewport().transparent_bg = false
-	Global.backgroundColor = Color(0.0,1.0,0.0,1.0)
-	Saving.settings["backgroundColor"] = var_to_str(Color(0.0,1.0,0.0,1.0))
-	RenderingServer.set_default_clear_color(Color(0.0,1.0,0.0,1.0))
+	Global.backgroundColor = Color.GREEN
+	Saving.settings["backgroundColor"] = var_to_str(Color.GREEN)
+	RenderingServer.set_default_clear_color(Color.GREEN)
 	
 	Global.pushUpdate("Background color set to GREEN.")
 
 func _on_blue_button_pressed():
 	get_viewport().transparent_bg = false
-	Global.backgroundColor = Color(0.0,0.0,1.0,1.0)
-	Saving.settings["backgroundColor"] = var_to_str(Color(0.0,0.0,1.0,1.0))
-	RenderingServer.set_default_clear_color(Color(0.0,0.0,1.0,1.0))
+	Global.backgroundColor = Color.BLUE
+	Saving.settings["backgroundColor"] = var_to_str(Color.BLUE)
+	RenderingServer.set_default_clear_color(Color.BLUE)
 	
 	Global.pushUpdate("Background color set to BLUE.")
 
 func _on_magenta_button_pressed():
 	get_viewport().transparent_bg = false
-	Global.backgroundColor = Color(1.0,0.0,1.0,1.0)
-	Saving.settings["backgroundColor"] = var_to_str(Color(1.0,0.0,1.0,1.0))
-	RenderingServer.set_default_clear_color(Color(1.0,0.0,1.0,1.0))
+	Global.backgroundColor = Color.MAGENTA
+	Saving.settings["backgroundColor"] = var_to_str(Color.MAGENTA)
+	RenderingServer.set_default_clear_color(Color.MAGENTA)
 	
 	Global.pushUpdate("Background color set to MAGENTA.")
 

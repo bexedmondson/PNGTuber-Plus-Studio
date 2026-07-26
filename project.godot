@@ -58,10 +58,6 @@ version_control/autoload_on_startup=true
 
 enabled=PackedStringArray("res://addons/godot-streamdeck-addon/plugin.cfg")
 
-[global_group]
-
-penis=""
-
 [input]
 
 mouse_left={

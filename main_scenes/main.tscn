@@ -87,7 +87,7 @@ origin = NodePath("OriginMotion/Origin")
 camera = NodePath("Camera2D")
 controlPanel = NodePath("ControlPanel")
 editControls = NodePath("EditControls")
-tutorial = NodePath("CanvasLayer/Tutorial")
+tutorial = NodePath("InfoPopupCanvasLayer/Tutorial")
 spriteViewer = NodePath("EditControls/SpriteViewer")
 viewerArrows = NodePath("ViewerArrows")
 spriteList = NodePath("EditControls/SpriteList")
@@ -96,13 +96,13 @@ replaceDialog = NodePath("ReplaceDialog")
 saveDialog = NodePath("SaveDialog")
 loadDialog = NodePath("LoadDialog")
 audioDialog = NodePath("AudioFileDialog")
-lines = NodePath("CanvasLayer2/Lines")
+lines = NodePath("EditBackgroundCanvasLayer/Lines")
 settingsMenu = NodePath("ControlPanel/SettingsMenu")
-pushUpdates = NodePath("CanvasLayer/PushUpdates")
+pushUpdates = NodePath("InfoPopupCanvasLayer/PushUpdates")
 shadow = NodePath("shadowSprite")
 volumeSlider = NodePath("ControlPanel/volumeSlider")
 sensitiveSlider = NodePath("ControlPanel/sensitiveSlider")
-failedToAddSpriteMessage = NodePath("CanvasLayer/FailedToAddSpriteMessage")
+failedToAddSpriteMessage = NodePath("InfoPopupCanvasLayer/FailedToAddSpriteMessage")
 zoomLabel = NodePath("ControlPanel/ZoomLabel")
 screenCoverCollisionShape2D = NodePath("EditControls/ScreenCover/ScreenCoverCollisionShape2D")
 micInputSelect = NodePath("ControlPanel/MicInputSelect")
@@ -111,13 +111,14 @@ arrowsUp = NodePath("ViewerArrows/Arrows2")
 areaMoveEditMenuUp = NodePath("EditControls/MoveMenuUp")
 areaMoveEditMenuDown = NodePath("EditControls/MoveMenuDown")
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=11251667]
+[node name="EditBackgroundCanvasLayer" type="CanvasLayer" parent="." unique_id=11251667]
 layer = -1
 
-[node name="Lines" type="Control" parent="CanvasLayer2" unique_id=71555353 node_paths=PackedStringArray("h", "v")]
+[node name="Lines" type="Control" parent="EditBackgroundCanvasLayer" unique_id=71555353]
 z_index = -4096
 z_as_relative = false
 layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -126,10 +127,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 1
 script = ExtResource("7_2u7em")
-h = NodePath("")
-v = NodePath("")
 
-[node name="VSeparator" type="VSeparator" parent="CanvasLayer2/Lines" unique_id=1937493947]
+[node name="VSeparator" type="VSeparator" parent="EditBackgroundCanvasLayer/Lines" unique_id=1937493947]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
@@ -142,7 +141,7 @@ grow_vertical = 2
 mouse_filter = 1
 theme_override_styles/separator = SubResource("StyleBoxLine_m48a7")
 
-[node name="HSeparator" type="HSeparator" parent="CanvasLayer2/Lines" unique_id=1444939861]
+[node name="HSeparator" type="HSeparator" parent="EditBackgroundCanvasLayer/Lines" unique_id=1444939861]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -332,7 +331,6 @@ text = "v1.0.5"
 label_settings = SubResource("LabelSettings_xvf50")
 
 [node name="EditControls" type="Node2D" parent="." unique_id=1411964796]
-visible = false
 z_index = 4090
 script = ExtResource("17_bf1ic")
 
@@ -370,14 +368,14 @@ offset_right = 23.0
 offset_bottom = 23.0
 flat = true
 
-[node name="Area2D" type="Area2D" parent="EditControls/Link" unique_id=603310914 groups=["penis"]]
+[node name="Area2D" type="Area2D" parent="EditControls/Link" unique_id=603310914]
 position = Vector2(-176, -32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EditControls/Link/Area2D" unique_id=1278245911]
 position = Vector2(176, 32)
 shape = SubResource("RectangleShape2D_f4sd5")
 
-[node name="Area2D2" type="Area2D" parent="EditControls/Link" unique_id=908252692 groups=["penis"]]
+[node name="Area2D2" type="Area2D" parent="EditControls/Link" unique_id=908252692]
 position = Vector2(-320, -33)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EditControls/Link/Area2D2" unique_id=412107758]
@@ -453,7 +451,7 @@ offset_right = 23.0
 offset_bottom = 23.0
 flat = true
 
-[node name="Area2D2" type="Area2D" parent="EditControls/ReplaceSprite" unique_id=1777766554 groups=["penis"]]
+[node name="Area2D2" type="Area2D" parent="EditControls/ReplaceSprite" unique_id=1777766554]
 position = Vector2(-176, -32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EditControls/ReplaceSprite/Area2D2" unique_id=304437327]
@@ -475,14 +473,14 @@ offset_right = 23.0
 offset_bottom = 23.0
 flat = true
 
-[node name="Area2D2" type="Area2D" parent="EditControls/DuplicateSprite" unique_id=633484845 groups=["penis"]]
+[node name="Area2D2" type="Area2D" parent="EditControls/DuplicateSprite" unique_id=633484845]
 position = Vector2(-176, -32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EditControls/DuplicateSprite/Area2D2" unique_id=1816134883]
 position = Vector2(176, 32)
 shape = SubResource("RectangleShape2D_f4sd5")
 
-[node name="ScreenCover" type="Area2D" parent="EditControls" unique_id=808018584 groups=["penis"]]
+[node name="ScreenCover" type="Area2D" parent="EditControls" unique_id=808018584]
 visible = false
 
 [node name="ScreenCoverCollisionShape2D" type="CollisionShape2D" parent="EditControls/ScreenCover" unique_id=672640469]
@@ -491,9 +489,11 @@ shape = SubResource("RectangleShape2D_ebmai")
 disabled = true
 
 [node name="SpriteViewer" parent="EditControls" unique_id=843198087 instance=ExtResource("9_uqv8p")]
-visible = false
 z_index = 4094
-position = Vector2(9, 66)
+offset_left = 9.0
+offset_top = 66.0
+offset_right = 9.0
+offset_bottom = 66.0
 
 [node name="MoveMenuUp" type="Area2D" parent="EditControls" unique_id=80084451]
 collision_layer = 0
@@ -542,9 +542,10 @@ position = Vector2(-28, -28)
 modulate = Color(0, 0, 0, 0.478431)
 z_index = -4096
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1769298162]
+[node name="InfoPopupCanvasLayer" type="CanvasLayer" parent="." unique_id=1769298162]
+layer = 10
 
-[node name="Tutorial" type="Control" parent="CanvasLayer" unique_id=305429640 node_paths=PackedStringArray("tutorialPopupRect")]
+[node name="Tutorial" type="Control" parent="InfoPopupCanvasLayer" unique_id=305429640 node_paths=PackedStringArray("tutorialPopupRect")]
 z_index = 4096
 layout_mode = 3
 anchors_preset = 3
@@ -557,7 +558,7 @@ grow_vertical = 0
 script = ExtResource("27_ivpmi")
 tutorialPopupRect = NodePath("TutorialInfoBackground")
 
-[node name="TutorialInfoBackground" type="NinePatchRect" parent="CanvasLayer/Tutorial" unique_id=1174239878]
+[node name="TutorialInfoBackground" type="NinePatchRect" parent="InfoPopupCanvasLayer/Tutorial" unique_id=1174239878]
 visible = false
 layout_mode = 0
 offset_left = -461.0
@@ -573,7 +574,7 @@ patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
 
-[node name="Label" type="Label" parent="CanvasLayer/Tutorial/TutorialInfoBackground" unique_id=1895736113]
+[node name="Label" type="Label" parent="InfoPopupCanvasLayer/Tutorial/TutorialInfoBackground" unique_id=1895736113]
 layout_mode = 0
 offset_left = 15.0
 offset_top = 14.0
@@ -595,14 +596,14 @@ text = "-Mouse click or scroll to select sprite
 "
 label_settings = SubResource("LabelSettings_iu6ix")
 
-[node name="InfoButton" type="Button" parent="CanvasLayer/Tutorial" unique_id=1167810444]
+[node name="InfoButton" type="Button" parent="InfoPopupCanvasLayer/Tutorial" unique_id=1167810444]
 layout_mode = 0
 offset_left = -40.0
 offset_top = -40.0
 icon = ExtResource("27_og5v1")
 flat = true
 
-[node name="FailedToAddSpriteMessage" type="Control" parent="CanvasLayer" unique_id=500797085]
+[node name="FailedToAddSpriteMessage" type="Control" parent="InfoPopupCanvasLayer" unique_id=500797085]
 visible = false
 z_index = 4096
 layout_mode = 3
@@ -612,7 +613,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="FailedToAddSpriteMessageBG" type="TextureRect" parent="CanvasLayer/FailedToAddSpriteMessage" unique_id=1425640179]
+[node name="FailedToAddSpriteMessageBG" type="TextureRect" parent="InfoPopupCanvasLayer/FailedToAddSpriteMessage" unique_id=1425640179]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -627,7 +628,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("21_6nw1o")
 
-[node name="FailedToAddSpriteText" type="Label" parent="CanvasLayer/FailedToAddSpriteMessage/FailedToAddSpriteMessageBG" unique_id=1687802597]
+[node name="FailedToAddSpriteText" type="Label" parent="InfoPopupCanvasLayer/FailedToAddSpriteMessage/FailedToAddSpriteMessageBG" unique_id=1687802597]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -643,7 +644,7 @@ grow_vertical = 2
 text = "FAILED TO ADD SPRITE"
 label_settings = SubResource("LabelSettings_5yofs")
 
-[node name="FailedToAddSpriteReason" type="Label" parent="CanvasLayer/FailedToAddSpriteMessage/FailedToAddSpriteMessageBG" unique_id=1056757034]
+[node name="FailedToAddSpriteReason" type="Label" parent="InfoPopupCanvasLayer/FailedToAddSpriteMessage/FailedToAddSpriteMessageBG" unique_id=1056757034]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -660,7 +661,7 @@ text = "MISSING PERMISSION"
 label_settings = SubResource("LabelSettings_5yofs")
 horizontal_alignment = 1
 
-[node name="PushUpdates" parent="CanvasLayer" unique_id=1500772835 instance=ExtResource("30_q43vl")]
+[node name="PushUpdates" parent="InfoPopupCanvasLayer" unique_id=1500772835 instance=ExtResource("30_q43vl")]
 z_index = 4090
 anchors_preset = 2
 anchor_top = 1.0
@@ -730,7 +731,7 @@ filters = PackedStringArray("*.wav", "*.ogg", "*.mp3")
 [connection signal="pressed" from="EditControls/DuplicateSprite/duplicateButton" to="." method="_on_duplicate_button_pressed"]
 [connection signal="bg_key_pressed" from="BackgroundInputCapture" to="." method="bgInputSprite"]
 [connection signal="bg_key_pressed" from="BackgroundInputCapture" to="." method="_on_background_input_capture_bg_key_pressed"]
-[connection signal="pressed" from="CanvasLayer/Tutorial/InfoButton" to="CanvasLayer/Tutorial" method="_on_button_pressed"]
+[connection signal="pressed" from="InfoPopupCanvasLayer/Tutorial/InfoButton" to="InfoPopupCanvasLayer/Tutorial" method="_on_button_pressed"]
 [connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
 [connection signal="file_selected" from="ReplaceDialog" to="." method="_on_replace_dialog_file_selected"]
 [connection signal="visibility_changed" from="ReplaceDialog" to="." method="_on_replace_dialog_visibility_changed"]

@@ -9,7 +9,7 @@ var editMode = true
 @export var controlPanel : Node2D
 @export var editControls : Node2D 
 @export var tutorial : Control
-@export var spriteViewer : Node2D 
+@export var spriteViewer : Control 
 @export var viewerArrows : Node2D
 @export var spriteList : Node2D
 
@@ -647,19 +647,18 @@ func changeCostume(newCostume):
 	Global.pushUpdate("Change costume: " + str(newCostume))
 	
 func moveSpriteMenu(delta):
-	
 	#moves sprite viewer editor thing around
-	
-	var size = get_viewport().get_visible_rect().size
-	
-	var windowLength = 1250 #1187
-	
-	arrowsDown.position.y =  size.y - 25
 	
 	if !Global.spriteEdit.visible:
 		arrowsDown.visible = false
 		arrowsUp.visible = false
 		return
+
+	var size = get_viewport().get_visible_rect().size
+
+	var windowLength = 1250 #1187
+
+	arrowsDown.position.y =  size.y - 25
 	
 	if size.y > windowLength+50:
 		Global.spriteEdit.position.y = 66

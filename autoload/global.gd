@@ -180,15 +180,8 @@ func _process(delta):
 	
 	
 func select(areas):
-	
 	if main.fileSystemOpen:
 		return
-	
-	for area in areas:
-		if area.is_in_group("penis"):
-			return
-	
-	#heldEvent = null
 	
 	var prevSpr = heldSprite
 	if areas.size() <= 0:
@@ -279,10 +272,6 @@ func scrollSprites():
 	
 	if main.fileSystemOpen:
 		return
-	
-	for area in mouse.area.get_overlapping_areas():
-		if area.is_in_group("penis"):
-			return
 	
 	var scroll = 0
 	

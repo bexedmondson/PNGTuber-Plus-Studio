@@ -1,12 +1,9 @@
 [gd_scene format=3 uid="uid://kj528cw4xqwd"]
 
 [ext_resource type="Script" uid="uid://u3wi2spw4q8j" path="res://ui_scenes/settings/SettingsMenu.gd" id="1_ckdhy"]
-[ext_resource type="Texture2D" uid="uid://23rqddatjku3" path="res://ui_scenes/mouse/tooltipBox.png" id="1_ylauk"]
+[ext_resource type="Theme" uid="uid://cifwpto8hyheb" path="res://themes/PNGTuberPro_Popup_theme.tres" id="1_qpalx"]
 [ext_resource type="Texture2D" uid="uid://c2gmfosxa8p2p" path="res://ui_scenes/settings/transparent.png" id="3_b5ia8"]
-[ext_resource type="Texture2D" uid="uid://c1k0fbydfmt3w" path="res://ui_scenes/settings/green.png" id="4_eom5i"]
 [ext_resource type="Texture2D" uid="uid://b26x6kss2fvsi" path="res://ui_scenes/spriteEditMenu/grab.png" id="4_vnnuu"]
-[ext_resource type="Texture2D" uid="uid://d0tponia41aja" path="res://ui_scenes/settings/blue.png" id="5_58cek"]
-[ext_resource type="Texture2D" uid="uid://dbwl6wawm1w4s" path="res://ui_scenes/settings/magenta.png" id="6_vtbyu"]
 [ext_resource type="Texture2D" uid="uid://i0wc2ou3k7kv" path="res://ui_scenes/settings/editPencil.png" id="7_8meot"]
 [ext_resource type="PackedScene" uid="uid://cxhfb4qhi2y44" path="res://ui_scenes/settings/costume_button.tscn" id="9_f35cv"]
 
@@ -78,385 +75,368 @@ HSlider/styles/grabber_area = SubResource("StyleBoxFlat_2r30l")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_44q16")
 HSlider/styles/slider = SubResource("StyleBoxFlat_t3qts")
 
-[node name="SettingsMenu" type="Node2D" unique_id=1383192835 node_paths=PackedStringArray("costumeButtons")]
+[node name="SettingsMenu" type="PanelContainer" unique_id=737674905 node_paths=PackedStringArray("backgroundColorPickerButton", "maxFPSValueLabel", "maxFPSSlider", "antialiasingCheckbox", "bounceForceValueLabel", "bounceForceSlider", "bounceGravityValueLabel", "bounceGravitySlider", "costumeButtons", "bounceOnCostumeChangeButton", "blinkSpeedValueLabel", "blinkSpeedSlider", "blinkChanceValueLabel", "blinkChanceSlider")]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -477.0
+offset_top = -101.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("1_qpalx")
 script = ExtResource("1_ckdhy")
-costumeButtons = [NodePath("CostumeInputs/ScrollContainer/VBoxContainer/CostumeButton"), NodePath("CostumeInputs/ScrollContainer/VBoxContainer/CostumeButton2"), NodePath("CostumeInputs/ScrollContainer/VBoxContainer/CostumeButton3"), NodePath("CostumeInputs/ScrollContainer/VBoxContainer/CostumeButton4"), NodePath("CostumeInputs/ScrollContainer/VBoxContainer/CostumeButton5"), NodePath("CostumeInputs/ScrollContainer/VBoxContainer/CostumeButton6"), NodePath("CostumeInputs/ScrollContainer/VBoxContainer/CostumeButton7"), NodePath("CostumeInputs/ScrollContainer/VBoxContainer/CostumeButton8"), NodePath("CostumeInputs/ScrollContainer/VBoxContainer/CostumeButton9"), NodePath("CostumeInputs/ScrollContainer/VBoxContainer/CostumeButton10")]
+backgroundColorPickerButton = NodePath("ScrollContainer/SettingsMenuVBoxContainer/WindowBackgroundSettings/ColorPickerButton")
+maxFPSValueLabel = NodePath("ScrollContainer/SettingsMenuVBoxContainer/MaxFPS/MaxFPSValueLabel")
+maxFPSSlider = NodePath("ScrollContainer/SettingsMenuVBoxContainer/MaxFPS/MaxFPSSlider")
+antialiasingCheckbox = NodePath("ScrollContainer/SettingsMenuVBoxContainer/AntiAliasing/CheckBox")
+bounceForceValueLabel = NodePath("ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeOptionsVBoxContainer/BounceForce2/BounceForceValueLabel")
+bounceForceSlider = NodePath("ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeOptionsVBoxContainer/BounceForce2/BounceForceSlider")
+bounceGravityValueLabel = NodePath("ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeOptionsVBoxContainer/BounceGravity2/BounceGravityValueLabel")
+bounceGravitySlider = NodePath("ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeOptionsVBoxContainer/BounceGravity2/BounceGravitySlider")
+costumeButtons = [NodePath("ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs/ScrollContainer/VBoxContainer/CostumeButton"), NodePath("ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs/ScrollContainer/VBoxContainer/CostumeButton2"), NodePath("ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs/ScrollContainer/VBoxContainer/CostumeButton3"), NodePath("ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs/ScrollContainer/VBoxContainer/CostumeButton4"), NodePath("ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs/ScrollContainer/VBoxContainer/CostumeButton5"), NodePath("ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs/ScrollContainer/VBoxContainer/CostumeButton6"), NodePath("ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs/ScrollContainer/VBoxContainer/CostumeButton7"), NodePath("ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs/ScrollContainer/VBoxContainer/CostumeButton8"), NodePath("ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs/ScrollContainer/VBoxContainer/CostumeButton9"), NodePath("ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs/ScrollContainer/VBoxContainer/CostumeButton10")]
+bounceOnCostumeChangeButton = NodePath("ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeOptionsVBoxContainer/bounceOnCostume/costumeCheck")
+blinkSpeedValueLabel = NodePath("ScrollContainer/SettingsMenuVBoxContainer/BlinkSpeed/BlinkSpeedValueLabel")
+blinkSpeedSlider = NodePath("ScrollContainer/SettingsMenuVBoxContainer/BlinkSpeed/BlinkSpeedSlider")
+blinkChanceValueLabel = NodePath("ScrollContainer/SettingsMenuVBoxContainer/BlinkChance/BlinkChanceValueLabel")
+blinkChanceSlider = NodePath("ScrollContainer/SettingsMenuVBoxContainer/BlinkChance/BlinkChanceSlider")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1906670236]
-offset_right = 419.0
-offset_bottom = 531.0
-texture = ExtResource("1_ylauk")
-region_rect = Rect2(0, 0, 48, 48)
-patch_margin_left = 8
-patch_margin_top = 8
-patch_margin_right = 8
-patch_margin_bottom = 8
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=581372235]
+layout_mode = 2
 
-[node name="Background" type="Node2D" parent="." unique_id=530410738]
-position = Vector2(22, 25)
+[node name="SettingsMenuVBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=1781319813]
+layout_mode = 2
+size_flags_vertical = 3
 
-[node name="Transparent" type="Sprite2D" parent="Background" unique_id=359444240]
-position = Vector2(173, 13)
-texture = ExtResource("3_b5ia8")
+[node name="WindowBackgroundSettings" type="HBoxContainer" parent="ScrollContainer/SettingsMenuVBoxContainer" unique_id=1102254552]
+layout_mode = 2
 
-[node name="Button" type="Button" parent="Background/Transparent" unique_id=1865521011]
-offset_left = -16.0
-offset_top = -16.0
-offset_right = 16.0
-offset_bottom = 16.0
-
-[node name="Green" type="Sprite2D" parent="Background" unique_id=1143170121]
-position = Vector2(209, 13)
-texture = ExtResource("4_eom5i")
-
-[node name="greenButton" type="Button" parent="Background/Green" unique_id=1795336936]
-offset_left = -16.0
-offset_top = -16.0
-offset_right = 16.0
-offset_bottom = 16.0
-
-[node name="Blue" type="Sprite2D" parent="Background" unique_id=1200139184]
-position = Vector2(245, 13)
-texture = ExtResource("5_58cek")
-
-[node name="blueButton" type="Button" parent="Background/Blue" unique_id=1559079585]
-offset_left = -16.0
-offset_top = -16.0
-offset_right = 16.0
-offset_bottom = 16.0
-
-[node name="Magenta" type="Sprite2D" parent="Background" unique_id=331175563]
-position = Vector2(281, 13)
-texture = ExtResource("6_vtbyu")
-
-[node name="magentaButton" type="Button" parent="Background/Magenta" unique_id=278092113]
-offset_left = -16.0
-offset_top = -16.0
-offset_right = 16.0
-offset_bottom = 16.0
-
-[node name="Label" type="Label" parent="Background" unique_id=1384879910]
-offset_right = 138.0
-offset_bottom = 34.0
+[node name="BackgroundColorLabel" type="Label" parent="ScrollContainer/SettingsMenuVBoxContainer/WindowBackgroundSettings" unique_id=1384879910]
+layout_mode = 2
+size_flags_horizontal = 3
 text = "background color"
 
-[node name="ColorPickerButton" type="ColorPickerButton" parent="Background" unique_id=2059411776]
-offset_left = 301.0
-offset_top = -3.0
-offset_right = 333.0
-offset_bottom = 29.0
+[node name="TransparentButton" type="Button" parent="ScrollContainer/SettingsMenuVBoxContainer/WindowBackgroundSettings" unique_id=1865521011]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+icon = ExtResource("3_b5ia8")
+expand_icon = true
+
+[node name="greenButton" type="Button" parent="ScrollContainer/SettingsMenuVBoxContainer/WindowBackgroundSettings" unique_id=1795336936]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="blueButton" type="Button" parent="ScrollContainer/SettingsMenuVBoxContainer/WindowBackgroundSettings" unique_id=1559079585]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="magentaButton" type="Button" parent="ScrollContainer/SettingsMenuVBoxContainer/WindowBackgroundSettings" unique_id=278092113]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="ScrollContainer/SettingsMenuVBoxContainer/WindowBackgroundSettings" unique_id=2059411776]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
 color = Color(0.368627, 0.368627, 0.368627, 1)
 edit_alpha = false
 
-[node name="EditPencil" type="Sprite2D" parent="Background" unique_id=1064993071]
-position = Vector2(330, 27)
+[node name="ButtonIconTextureRect" type="TextureRect" parent="ScrollContainer/SettingsMenuVBoxContainer/WindowBackgroundSettings/ColorPickerButton" unique_id=944323717]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 5.0000076
+offset_bottom = 5.0
+grow_horizontal = 0
+grow_vertical = 0
 texture = ExtResource("7_8meot")
+expand_mode = 5
+stretch_mode = 5
 
-[node name="MaxFPS" type="Node2D" parent="." unique_id=1221467956]
-position = Vector2(22, 74)
+[node name="MaxFPS" type="HBoxContainer" parent="ScrollContainer/SettingsMenuVBoxContainer" unique_id=152272448]
+layout_mode = 2
 
-[node name="Label" type="Label" parent="MaxFPS" unique_id=1738280211]
-offset_right = 138.0
-offset_bottom = 34.0
+[node name="Label" type="Label" parent="ScrollContainer/SettingsMenuVBoxContainer/MaxFPS" unique_id=1738280211]
+layout_mode = 2
 text = "max fps"
 
-[node name="fpslabel" type="Label" parent="MaxFPS" unique_id=1016998775]
-offset_left = 79.0
-offset_top = -17.0
-offset_right = 217.0
-offset_bottom = 17.0
+[node name="MaxFPSValueLabel" type="Label" parent="ScrollContainer/SettingsMenuVBoxContainer/MaxFPS" unique_id=1016998775]
+layout_mode = 2
 text = "240"
 
-[node name="fpsDrag" type="HSlider" parent="MaxFPS" unique_id=985900072]
-offset_left = 77.0
-offset_top = 3.0
-offset_right = 300.0
-offset_bottom = 23.0
+[node name="MaxFPSSlider" type="HSlider" parent="ScrollContainer/SettingsMenuVBoxContainer/MaxFPS" unique_id=985900072]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
 theme = SubResource("Theme_e6tc4")
 min_value = 1.0
 max_value = 241.0
 value = 1.0
 scrollable = false
 
-[node name="confirm" type="Button" parent="MaxFPS" unique_id=1946463316]
-offset_left = 309.0
-offset_top = -3.0
-offset_right = 378.0
-offset_bottom = 28.0
+[node name="confirm" type="Button" parent="ScrollContainer/SettingsMenuVBoxContainer/MaxFPS" unique_id=1946463316]
+layout_mode = 2
 text = "confirm"
 
-[node name="AntiAliasing" type="Node2D" parent="." unique_id=749892553]
-position = Vector2(16, 373)
+[node name="AntiAliasing" type="HBoxContainer" parent="ScrollContainer/SettingsMenuVBoxContainer" unique_id=2138988449]
+layout_mode = 2
 
-[node name="Label" type="Label" parent="AntiAliasing" unique_id=1775770595]
-offset_left = -6.0
-offset_top = -14.0
-offset_right = 132.0
-offset_bottom = 20.0
+[node name="Label" type="Label" parent="ScrollContainer/SettingsMenuVBoxContainer/AntiAliasing" unique_id=1775770595]
+layout_mode = 2
 text = "texture filtering"
 
-[node name="CheckBox" type="CheckBox" parent="AntiAliasing" unique_id=1257227554]
-offset_left = 119.0
-offset_top = -12.0
-offset_right = 143.0
-offset_bottom = 12.0
+[node name="CheckBox" type="CheckBox" parent="ScrollContainer/SettingsMenuVBoxContainer/AntiAliasing" unique_id=1257227554]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
 
-[node name="bounceOnCostume" type="Node2D" parent="." unique_id=1641993490]
-position = Vector2(17, 341)
+[node name="HSeparator3" type="HSeparator" parent="ScrollContainer/SettingsMenuVBoxContainer" unique_id=852704575]
+layout_mode = 2
 
-[node name="Label" type="Label" parent="bounceOnCostume" unique_id=597117402]
-offset_left = -6.0
-offset_top = -14.0
-offset_right = 132.0
-offset_bottom = 20.0
-text = "costume bounce"
+[node name="BlinkSpeed" type="HBoxContainer" parent="ScrollContainer/SettingsMenuVBoxContainer" unique_id=1239037083]
+layout_mode = 2
 
-[node name="costumeCheck" type="CheckBox" parent="bounceOnCostume" unique_id=542792392]
-offset_left = 124.0
-offset_top = -13.0
-offset_right = 148.0
-offset_bottom = 11.0
+[node name="Label" type="Label" parent="ScrollContainer/SettingsMenuVBoxContainer/BlinkSpeed" unique_id=196011838]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "blink speed"
 
-[node name="BounceForce" type="Node2D" parent="." unique_id=344785468]
-position = Vector2(22, 115)
-
-[node name="Label" type="Label" parent="BounceForce" unique_id=978513250]
-offset_right = 138.0
-offset_bottom = 34.0
-text = "bounce force"
-
-[node name="bounce" type="Label" parent="BounceForce" unique_id=1895229199]
-offset_left = 336.0
-offset_right = 392.0
-offset_bottom = 26.0
-text = "250"
-horizontal_alignment = 1
-
-[node name="bounceForce" type="HSlider" parent="BounceForce" unique_id=630430878]
-offset_left = 112.0
-offset_top = 3.0
-offset_right = 335.0
-offset_bottom = 23.0
-theme = SubResource("Theme_e6tc4")
-max_value = 500.0
-value = 250.0
-scrollable = false
-
-[node name="BounceGravity" type="Node2D" parent="." unique_id=1629158481]
-position = Vector2(22, 153)
-
-[node name="Label" type="Label" parent="BounceGravity" unique_id=1029286187]
-offset_right = 138.0
-offset_bottom = 34.0
-text = "bounce gravity"
-
-[node name="bounce" type="Label" parent="BounceGravity" unique_id=1594904783]
-offset_left = 335.0
-offset_right = 391.0
-offset_bottom = 26.0
-text = "250"
-horizontal_alignment = 1
-
-[node name="bounceGravity" type="HSlider" parent="BounceGravity" unique_id=1716100650]
-offset_left = 116.0
-offset_top = 3.0
-offset_right = 339.0
-offset_bottom = 23.0
-theme = SubResource("Theme_e6tc4")
-max_value = 3000.0
-value = 1000.0
-scrollable = false
-
-[node name="CostumeInputs" type="Node2D" parent="." unique_id=872050438]
-position = Vector2(404, 305)
-
-[node name="ScrollContainer" type="ScrollContainer" parent="CostumeInputs" unique_id=1553202938]
-offset_left = -226.0
-offset_top = -78.0
-offset_right = 7.0
-offset_bottom = 220.0
-horizontal_scroll_mode = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CostumeInputs/ScrollContainer" unique_id=480728617]
+[node name="BlinkSpeedSlider" type="HSlider" parent="ScrollContainer/SettingsMenuVBoxContainer/BlinkSpeed" unique_id=104526330]
+custom_maximum_size = Vector2(240, -1)
 layout_mode = 2
 size_flags_horizontal = 3
-
-[node name="CostumeButton" parent="CostumeInputs/ScrollContainer/VBoxContainer" unique_id=29525414 node_paths=PackedStringArray("settingsMenu") instance=ExtResource("9_f35cv")]
-layout_mode = 2
-costumeIndex = 1
-settingsMenu = NodePath("../../../..")
-
-[node name="CostumeButton2" parent="CostumeInputs/ScrollContainer/VBoxContainer" unique_id=1655439391 node_paths=PackedStringArray("settingsMenu") instance=ExtResource("9_f35cv")]
-layout_mode = 2
-costumeIndex = 2
-settingsMenu = NodePath("../../../..")
-
-[node name="CostumeButton3" parent="CostumeInputs/ScrollContainer/VBoxContainer" unique_id=448990594 node_paths=PackedStringArray("settingsMenu") instance=ExtResource("9_f35cv")]
-layout_mode = 2
-costumeIndex = 3
-settingsMenu = NodePath("../../../..")
-
-[node name="CostumeButton4" parent="CostumeInputs/ScrollContainer/VBoxContainer" unique_id=896332695 node_paths=PackedStringArray("settingsMenu") instance=ExtResource("9_f35cv")]
-layout_mode = 2
-costumeIndex = 4
-settingsMenu = NodePath("../../../..")
-
-[node name="CostumeButton5" parent="CostumeInputs/ScrollContainer/VBoxContainer" unique_id=1925153661 node_paths=PackedStringArray("settingsMenu") instance=ExtResource("9_f35cv")]
-layout_mode = 2
-costumeIndex = 5
-settingsMenu = NodePath("../../../..")
-
-[node name="CostumeButton6" parent="CostumeInputs/ScrollContainer/VBoxContainer" unique_id=1941667473 node_paths=PackedStringArray("settingsMenu") instance=ExtResource("9_f35cv")]
-layout_mode = 2
-costumeIndex = 6
-settingsMenu = NodePath("../../../..")
-
-[node name="CostumeButton7" parent="CostumeInputs/ScrollContainer/VBoxContainer" unique_id=752248370 node_paths=PackedStringArray("settingsMenu") instance=ExtResource("9_f35cv")]
-layout_mode = 2
-costumeIndex = 7
-settingsMenu = NodePath("../../../..")
-
-[node name="CostumeButton8" parent="CostumeInputs/ScrollContainer/VBoxContainer" unique_id=402896381 node_paths=PackedStringArray("settingsMenu") instance=ExtResource("9_f35cv")]
-layout_mode = 2
-costumeIndex = 8
-settingsMenu = NodePath("../../../..")
-
-[node name="CostumeButton9" parent="CostumeInputs/ScrollContainer/VBoxContainer" unique_id=116693947 node_paths=PackedStringArray("settingsMenu") instance=ExtResource("9_f35cv")]
-layout_mode = 2
-costumeIndex = 9
-settingsMenu = NodePath("../../../..")
-
-[node name="CostumeButton10" parent="CostumeInputs/ScrollContainer/VBoxContainer" unique_id=1145610988 node_paths=PackedStringArray("settingsMenu") instance=ExtResource("9_f35cv")]
-layout_mode = 2
-costumeIndex = 10
-settingsMenu = NodePath("../../../..")
-
-[node name="Label" type="Label" parent="CostumeInputs" unique_id=605324469]
-offset_left = -179.0
-offset_top = -109.0
-offset_right = -41.0
-offset_bottom = -75.0
-text = "costume hotkeys"
-
-[node name="ShowStatusUpdates" type="Node2D" parent="." unique_id=2035483906]
-position = Vector2(16, 396)
-
-[node name="Label" type="Label" parent="ShowStatusUpdates" unique_id=2101395250]
-offset_left = -6.0
-offset_top = -8.0
-offset_right = 144.0
-offset_bottom = 41.0
-text = "show status updates"
-autowrap_mode = 3
-
-[node name="statusUpdatesCheck" type="CheckBox" parent="ShowStatusUpdates" unique_id=560420580]
-offset_left = 96.0
-offset_top = 8.0
-offset_right = 120.0
-offset_bottom = 32.0
-button_pressed = true
-
-[node name="BlinkSpeed" type="Node2D" parent="." unique_id=958135627]
-position = Vector2(17, 283)
-
-[node name="Label" type="Label" parent="BlinkSpeed" unique_id=196011838]
-offset_left = -10.0
-offset_top = -7.0
-offset_right = 158.0
-offset_bottom = 27.0
-text = "blink speed: 1"
-horizontal_alignment = 1
-
-[node name="blinkSpeed" type="HSlider" parent="BlinkSpeed" unique_id=104526330]
-offset_left = -9.0
-offset_top = 17.0
-offset_right = 157.0
-offset_bottom = 37.0
 theme = SubResource("Theme_e6tc4")
 max_value = 20.0
 value = 1.0
 scrollable = false
 
-[node name="BlinkChance" type="Node2D" parent="." unique_id=1489707294]
-position = Vector2(17, 235)
+[node name="BlinkSpeedValueLabel" type="Label" parent="ScrollContainer/SettingsMenuVBoxContainer/BlinkSpeed" unique_id=1854912065]
+layout_mode = 2
+text = "1"
 
-[node name="Label" type="Label" parent="BlinkChance" unique_id=1455661234]
-offset_left = -10.0
-offset_top = -7.0
-offset_right = 160.0
-offset_bottom = 27.0
-text = "blink chance: 1 in 200"
-horizontal_alignment = 1
+[node name="BlinkChance" type="HBoxContainer" parent="ScrollContainer/SettingsMenuVBoxContainer" unique_id=523739969]
+layout_mode = 2
 
-[node name="blinkChance" type="HSlider" parent="BlinkChance" unique_id=2032288250]
-offset_left = -8.0
-offset_top = 17.0
-offset_right = 157.0
-offset_bottom = 37.0
+[node name="Label" type="Label" parent="ScrollContainer/SettingsMenuVBoxContainer/BlinkChance" unique_id=388110417]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "blink chance"
+
+[node name="BlinkChanceSlider" type="HSlider" parent="ScrollContainer/SettingsMenuVBoxContainer/BlinkChance" unique_id=2032288250]
+custom_maximum_size = Vector2(240, -1)
+layout_mode = 2
+size_flags_horizontal = 3
 theme = SubResource("Theme_e6tc4")
 min_value = 1.0
 max_value = 300.0
 value = 200.0
 scrollable = false
 
-[node name="TruncateFilenames" type="Node2D" parent="." unique_id=805424535]
-position = Vector2(15, 451)
+[node name="BlinkChanceValueLabel" type="Label" parent="ScrollContainer/SettingsMenuVBoxContainer/BlinkChance" unique_id=1455661234]
+layout_mode = 2
+text = "1 in 200"
 
-[node name="Label" type="Label" parent="TruncateFilenames" unique_id=1452323955]
-offset_left = -6.0
-offset_top = -8.0
-offset_right = 144.0
-offset_bottom = 41.0
-text = "shorten filenames"
-autowrap_mode = 3
+[node name="HSeparator2" type="HSeparator" parent="ScrollContainer/SettingsMenuVBoxContainer" unique_id=631733723]
+layout_mode = 2
 
-[node name="truncateCheck" type="CheckBox" parent="TruncateFilenames" unique_id=1918131125]
-offset_left = 135.0
-offset_top = -7.0
-offset_right = 159.0
-offset_bottom = 17.0
+[node name="HSplitContainer" type="HSplitContainer" parent="ScrollContainer/SettingsMenuVBoxContainer" unique_id=1408567698]
+layout_mode = 2
+split_offsets = PackedInt32Array(240)
+dragging_enabled = false
+dragger_visibility = 1
+split_offset = 240
+
+[node name="CostumeOptionsVBoxContainer" type="VBoxContainer" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer" unique_id=424662625]
+layout_mode = 2
+
+[node name="EnableMicOnCostumeChange" type="HBoxContainer" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeOptionsVBoxContainer" unique_id=1097518903]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeOptionsVBoxContainer/EnableMicOnCostumeChange" unique_id=348606764]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "re-enable mic on costume change"
+autowrap_mode = 2
+
+[node name="resetMicCheck" type="CheckBox" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeOptionsVBoxContainer/EnableMicOnCostumeChange" unique_id=834679688]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+
+[node name="bounceOnCostume" type="HBoxContainer" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeOptionsVBoxContainer" unique_id=386508078]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeOptionsVBoxContainer/bounceOnCostume" unique_id=597117402]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "costume bounce"
+autowrap_mode = 2
+
+[node name="costumeCheck" type="CheckBox" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeOptionsVBoxContainer/bounceOnCostume" unique_id=542792392]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+expand_icon = true
+
+[node name="BounceForce" type="HBoxContainer" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeOptionsVBoxContainer" unique_id=221029782]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeOptionsVBoxContainer/BounceForce" unique_id=978513250]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "bounce force"
+
+[node name="BounceForce2" type="HBoxContainer" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeOptionsVBoxContainer" unique_id=1303190472]
+layout_mode = 2
+
+[node name="BounceForceSlider" type="HSlider" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeOptionsVBoxContainer/BounceForce2" unique_id=630430878]
+custom_maximum_size = Vector2(240, -1)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_e6tc4")
+max_value = 500.0
+value = 250.0
+scrollable = false
+
+[node name="BounceForceValueLabel" type="Label" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeOptionsVBoxContainer/BounceForce2" unique_id=1895229199]
+layout_mode = 2
+text = "250"
+horizontal_alignment = 1
+
+[node name="BounceGravity" type="HBoxContainer" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeOptionsVBoxContainer" unique_id=1789444243]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeOptionsVBoxContainer/BounceGravity" unique_id=1029286187]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "bounce gravity"
+
+[node name="BounceGravity2" type="HBoxContainer" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeOptionsVBoxContainer" unique_id=787131914]
+layout_mode = 2
+
+[node name="BounceGravitySlider" type="HSlider" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeOptionsVBoxContainer/BounceGravity2" unique_id=1716100650]
+custom_maximum_size = Vector2(240, -1)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_e6tc4")
+max_value = 3000.0
+value = 1000.0
+scrollable = false
+
+[node name="BounceGravityValueLabel" type="Label" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeOptionsVBoxContainer/BounceGravity2" unique_id=1594904783]
+layout_mode = 2
+text = "250"
+horizontal_alignment = 1
+
+[node name="CostumeInputs" type="VBoxContainer" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer" unique_id=516361593]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs" unique_id=605324469]
+layout_mode = 2
+text = "costume hotkeys"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs" unique_id=1553202938]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs/ScrollContainer" unique_id=480728617]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 3
+
+[node name="CostumeButton" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs/ScrollContainer/VBoxContainer" unique_id=29525414 node_paths=PackedStringArray("settingsMenu") instance=ExtResource("9_f35cv")]
+layout_mode = 2
+costumeIndex = 1
+settingsMenu = NodePath("")
+
+[node name="CostumeButton2" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs/ScrollContainer/VBoxContainer" unique_id=1655439391 node_paths=PackedStringArray("settingsMenu") instance=ExtResource("9_f35cv")]
+layout_mode = 2
+costumeIndex = 2
+settingsMenu = NodePath("")
+
+[node name="CostumeButton3" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs/ScrollContainer/VBoxContainer" unique_id=448990594 node_paths=PackedStringArray("settingsMenu") instance=ExtResource("9_f35cv")]
+layout_mode = 2
+costumeIndex = 3
+settingsMenu = NodePath("")
+
+[node name="CostumeButton4" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs/ScrollContainer/VBoxContainer" unique_id=896332695 node_paths=PackedStringArray("settingsMenu") instance=ExtResource("9_f35cv")]
+layout_mode = 2
+costumeIndex = 4
+settingsMenu = NodePath("")
+
+[node name="CostumeButton5" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs/ScrollContainer/VBoxContainer" unique_id=1925153661 node_paths=PackedStringArray("settingsMenu") instance=ExtResource("9_f35cv")]
+layout_mode = 2
+costumeIndex = 5
+settingsMenu = NodePath("")
+
+[node name="CostumeButton6" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs/ScrollContainer/VBoxContainer" unique_id=1941667473 node_paths=PackedStringArray("settingsMenu") instance=ExtResource("9_f35cv")]
+layout_mode = 2
+costumeIndex = 6
+settingsMenu = NodePath("")
+
+[node name="CostumeButton7" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs/ScrollContainer/VBoxContainer" unique_id=752248370 node_paths=PackedStringArray("settingsMenu") instance=ExtResource("9_f35cv")]
+layout_mode = 2
+costumeIndex = 7
+settingsMenu = NodePath("")
+
+[node name="CostumeButton8" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs/ScrollContainer/VBoxContainer" unique_id=402896381 node_paths=PackedStringArray("settingsMenu") instance=ExtResource("9_f35cv")]
+layout_mode = 2
+costumeIndex = 8
+settingsMenu = NodePath("")
+
+[node name="CostumeButton9" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs/ScrollContainer/VBoxContainer" unique_id=116693947 node_paths=PackedStringArray("settingsMenu") instance=ExtResource("9_f35cv")]
+layout_mode = 2
+costumeIndex = 9
+settingsMenu = NodePath("")
+
+[node name="CostumeButton10" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs/ScrollContainer/VBoxContainer" unique_id=1145610988 node_paths=PackedStringArray("settingsMenu") instance=ExtResource("9_f35cv")]
+layout_mode = 2
+costumeIndex = 10
+settingsMenu = NodePath("")
+
+[node name="HSeparator4" type="HSeparator" parent="ScrollContainer/SettingsMenuVBoxContainer" unique_id=1528398159]
+layout_mode = 2
+
+[node name="ShowStatusUpdates" type="HBoxContainer" parent="ScrollContainer/SettingsMenuVBoxContainer" unique_id=1134087193]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/SettingsMenuVBoxContainer/ShowStatusUpdates" unique_id=2101395250]
+layout_mode = 2
+text = "show status updates"
+
+[node name="statusUpdatesCheck" type="CheckBox" parent="ScrollContainer/SettingsMenuVBoxContainer/ShowStatusUpdates" unique_id=560420580]
+layout_mode = 2
 button_pressed = true
 
-[node name="EnableMicOnCostumeChange" type="Node2D" parent="." unique_id=776091009]
-position = Vector2(15, 479)
+[node name="TruncateFilenames" type="HBoxContainer" parent="ScrollContainer/SettingsMenuVBoxContainer" unique_id=1024762964]
+layout_mode = 2
 
-[node name="Label" type="Label" parent="EnableMicOnCostumeChange" unique_id=348606764]
-offset_left = -6.0
-offset_top = -8.0
-offset_right = 144.0
-offset_bottom = 41.0
-text = "re-enable mic on costume change"
-autowrap_mode = 3
+[node name="Label" type="Label" parent="ScrollContainer/SettingsMenuVBoxContainer/TruncateFilenames" unique_id=1452323955]
+layout_mode = 2
+text = "shorten filenames"
 
-[node name="resetMicCheck" type="CheckBox" parent="EnableMicOnCostumeChange" unique_id=834679688]
-offset_left = 132.0
-offset_top = 5.0
-offset_right = 156.0
-offset_bottom = 29.0
+[node name="truncateCheck" type="CheckBox" parent="ScrollContainer/SettingsMenuVBoxContainer/TruncateFilenames" unique_id=1918131125]
+layout_mode = 2
+button_pressed = true
 
-[connection signal="pressed" from="Background/Transparent/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Background/Green/greenButton" to="." method="_on_green_button_pressed"]
-[connection signal="pressed" from="Background/Blue/blueButton" to="." method="_on_blue_button_pressed"]
-[connection signal="pressed" from="Background/Magenta/magentaButton" to="." method="_on_magenta_button_pressed"]
-[connection signal="color_changed" from="Background/ColorPickerButton" to="." method="_on_color_picker_button_color_changed"]
-[connection signal="picker_created" from="Background/ColorPickerButton" to="." method="_on_color_picker_button_picker_created"]
-[connection signal="value_changed" from="MaxFPS/fpsDrag" to="." method="_on_fps_drag_value_changed"]
-[connection signal="pressed" from="MaxFPS/confirm" to="." method="_on_confirm_pressed"]
-[connection signal="toggled" from="AntiAliasing/CheckBox" to="." method="_on_check_box_toggled"]
-[connection signal="toggled" from="bounceOnCostume/costumeCheck" to="." method="_on_costume_check_toggled"]
-[connection signal="value_changed" from="BounceForce/bounceForce" to="." method="_on_bounce_force_value_changed"]
-[connection signal="value_changed" from="BounceGravity/bounceGravity" to="." method="_on_bounce_gravity_value_changed"]
-[connection signal="pressed" from="CostumeInputs/ScrollContainer/VBoxContainer/CostumeButton2" to="." method="_on_costume_button_1_pressed"]
-[connection signal="pressed" from="CostumeInputs/ScrollContainer/VBoxContainer/CostumeButton3" to="." method="_on_costume_button_1_pressed"]
-[connection signal="pressed" from="CostumeInputs/ScrollContainer/VBoxContainer/CostumeButton4" to="." method="_on_costume_button_1_pressed"]
-[connection signal="pressed" from="CostumeInputs/ScrollContainer/VBoxContainer/CostumeButton5" to="." method="_on_costume_button_1_pressed"]
-[connection signal="pressed" from="CostumeInputs/ScrollContainer/VBoxContainer/CostumeButton6" to="." method="_on_costume_button_1_pressed"]
-[connection signal="pressed" from="CostumeInputs/ScrollContainer/VBoxContainer/CostumeButton7" to="." method="_on_costume_button_1_pressed"]
-[connection signal="pressed" from="CostumeInputs/ScrollContainer/VBoxContainer/CostumeButton8" to="." method="_on_costume_button_1_pressed"]
-[connection signal="pressed" from="CostumeInputs/ScrollContainer/VBoxContainer/CostumeButton9" to="." method="_on_costume_button_1_pressed"]
-[connection signal="pressed" from="CostumeInputs/ScrollContainer/VBoxContainer/CostumeButton10" to="." method="_on_costume_button_1_pressed"]
-[connection signal="toggled" from="ShowStatusUpdates/statusUpdatesCheck" to="." method="_on_status_updates_check_toggled"]
-[connection signal="value_changed" from="BlinkSpeed/blinkSpeed" to="." method="_on_blink_speed_value_changed"]
-[connection signal="value_changed" from="BlinkChance/blinkChance" to="." method="_on_blink_chance_value_changed"]
-[connection signal="toggled" from="TruncateFilenames/truncateCheck" to="." method="_on_truncate_check_toggled"]
-[connection signal="toggled" from="EnableMicOnCostumeChange/resetMicCheck" to="." method="_on_reset_mic_check_toggled"]
+[connection signal="pressed" from="ScrollContainer/SettingsMenuVBoxContainer/WindowBackgroundSettings/TransparentButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/SettingsMenuVBoxContainer/WindowBackgroundSettings/greenButton" to="." method="_on_green_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/SettingsMenuVBoxContainer/WindowBackgroundSettings/blueButton" to="." method="_on_blue_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/SettingsMenuVBoxContainer/WindowBackgroundSettings/magentaButton" to="." method="_on_magenta_button_pressed"]
+[connection signal="color_changed" from="ScrollContainer/SettingsMenuVBoxContainer/WindowBackgroundSettings/ColorPickerButton" to="." method="_on_color_picker_button_color_changed"]
+[connection signal="picker_created" from="ScrollContainer/SettingsMenuVBoxContainer/WindowBackgroundSettings/ColorPickerButton" to="." method="_on_color_picker_button_picker_created"]
+[connection signal="value_changed" from="ScrollContainer/SettingsMenuVBoxContainer/MaxFPS/MaxFPSSlider" to="." method="_on_fps_drag_value_changed"]
+[connection signal="pressed" from="ScrollContainer/SettingsMenuVBoxContainer/MaxFPS/confirm" to="." method="_on_confirm_pressed"]
+[connection signal="toggled" from="ScrollContainer/SettingsMenuVBoxContainer/AntiAliasing/CheckBox" to="." method="_on_check_box_toggled"]
+[connection signal="value_changed" from="ScrollContainer/SettingsMenuVBoxContainer/BlinkSpeed/BlinkSpeedSlider" to="." method="_on_blink_speed_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/SettingsMenuVBoxContainer/BlinkChance/BlinkChanceSlider" to="." method="_on_blink_chance_value_changed"]
+[connection signal="toggled" from="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeOptionsVBoxContainer/EnableMicOnCostumeChange/resetMicCheck" to="." method="_on_reset_mic_check_toggled"]
+[connection signal="toggled" from="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeOptionsVBoxContainer/bounceOnCostume/costumeCheck" to="." method="_on_costume_check_toggled"]
+[connection signal="value_changed" from="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeOptionsVBoxContainer/BounceForce2/BounceForceSlider" to="." method="_on_bounce_force_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeOptionsVBoxContainer/BounceGravity2/BounceGravitySlider" to="." method="_on_bounce_gravity_value_changed"]
+[connection signal="toggled" from="ScrollContainer/SettingsMenuVBoxContainer/ShowStatusUpdates/statusUpdatesCheck" to="." method="_on_status_updates_check_toggled"]
+[connection signal="toggled" from="ScrollContainer/SettingsMenuVBoxContainer/TruncateFilenames/truncateCheck" to="." method="_on_truncate_check_toggled"]

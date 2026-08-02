@@ -96,7 +96,7 @@ saveDialog = NodePath("SaveDialog")
 loadDialog = NodePath("LoadDialog")
 audioDialog = NodePath("AudioFileDialog")
 lines = NodePath("EditBackgroundCanvasLayer/Lines")
-settingsMenu = NodePath("ControlPanel/SettingsMenu")
+settingsMenu = NodePath("StandardModeUILayer/SettingsMenu")
 pushUpdates = NodePath("InfoPopupCanvasLayer/PushUpdates")
 shadow = NodePath("shadowSprite")
 volumeSlider = NodePath("ControlPanel/volumeSlider")
@@ -204,11 +204,6 @@ offset_top = -12.0
 offset_right = 14.0
 offset_bottom = 14.0
 flat = true
-
-[node name="SettingsMenu" parent="ControlPanel" unique_id=1244130526 instance=ExtResource("25_a76ao")]
-visible = false
-z_index = 4096
-position = Vector2(-431, -672)
 
 [node name="Edit" type="Sprite2D" parent="ControlPanel" unique_id=462566562]
 texture_repeat = 2
@@ -327,6 +322,21 @@ offset_right = -361.0
 offset_bottom = -49.0
 text = "v1.0.5"
 label_settings = SubResource("LabelSettings_xvf50")
+
+[node name="StandardModeUILayer" type="CanvasLayer" parent="." unique_id=1408062257]
+
+[node name="SettingsMenu" parent="StandardModeUILayer" unique_id=1244130526 instance=ExtResource("25_a76ao")]
+visible = false
+z_index = 4096
+anchors_preset = 1
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_left = -491.0
+offset_top = 21.951
+offset_bottom = 581.951
+grow_vertical = 1
+
+[node name="EditModeCanvasLayer" type="CanvasLayer" parent="." unique_id=2075418943]
 
 [node name="EditControls" type="Node2D" parent="." unique_id=1411964796]
 z_index = 4090

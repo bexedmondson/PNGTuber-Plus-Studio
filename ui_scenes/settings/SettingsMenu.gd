@@ -1,38 +1,57 @@
 class_name SettingsMenu
-extends Node2D
+extends Control
 
 var awaitingCostumeInput = -1
 
 var hasMouse = false
 
+@export var backgroundColorPickerButton : Button
+@export var maxFPSValueLabel : Label
+@export var maxFPSSlider : Slider
+@export var antialiasingCheckbox = CheckBox
+
+@export_group("Bounce")
+@export var bounceForceValueLabel : Label
+@export var bounceForceSlider : Slider
+@export var bounceGravityValueLabel : Label
+@export var bounceGravitySlider : Slider
+
+@export_group("Costumes")
 @export var costumeButtons : Array[CostumeButton]
+@export var bounceOnCostumeChangeButton : Button
+
+@export_group("Blinking")
+@export var blinkSpeedValueLabel : Label
+@export var blinkSpeedSlider : Slider
+@export var blinkChanceValueLabel : Label
+@export var blinkChanceSlider : Slider
+
 
 func setup():
-	$Background/ColorPickerButton.color = Global.backgroundColor
+	backgroundColorPickerButton.color = Global.backgroundColor
 	if Global.backgroundColor == Color.TRANSPARENT:
-		$Background/ColorPickerButton.color = Color.WHITE
+		backgroundColorPickerButton.color = Color.WHITE
 	
-	
-	$MaxFPS/fpslabel.text = str(Engine.max_fps)
-	$MaxFPS/fpsDrag.value = Engine.max_fps
+	maxFPSValueLabel.text = str(Engine.max_fps)
+	maxFPSSlider.value = Engine.max_fps
 	if Engine.max_fps == 0:
-		$MaxFPS/fpslabel.text = "Unlimited"
-		$MaxFPS/fpsDrag.value = 241
+		maxFPSValueLabel.text = "Unlimited"
+		maxFPSSlider.value = 241
 	
-	$BounceForce/bounce.text = str(Saving.settings["bounce"])
-	$BounceForce/bounceForce.value = Saving.settings["bounce"]
-	$BounceGravity/bounce.text = str(Saving.settings["gravity"])
-	$BounceGravity/bounceGravity.value = Saving.settings["gravity"]
+	bounceForceValueLabel.text = str(Saving.settings["bounce"])
+	bounceForceSlider.value = Saving.settings["bounce"]
+	bounceGravityValueLabel.text = str(Saving.settings["gravity"])
+	bounceGravitySlider.value = Saving.settings["gravity"]
 	
 	_on_check_box_toggled(Global.filtering)
+
+	blinkSpeedValueLabel.text = "blink speed: " + str(int(1.0/Global.blinkSpeed))
+	blinkSpeedSlider.value = int(1.0/Global.blinkSpeed)
+
+	blinkChanceValueLabel.text = "blink chance: 1 in " + str(Global.blinkChance)
+	blinkChanceSlider.value = Global.blinkChance
 	
-	$BlinkSpeed/blinkSpeed.value = int(1.0/Global.blinkSpeed)
-	$BlinkSpeed/Label.text = "blink speed: " + str(int(1.0/Global.blinkSpeed))
-	
-	$BlinkChance/blinkChance.value = Global.blinkChance
-	$BlinkChance/Label.text = "blink chance: 1 in " + str(Global.blinkChance) 
-	
-	$bounceOnCostume/costumeCheck.button_pressed = Global.main.bounceOnCostumeChange
+	bounceOnCostumeChangeButton.button_pressed = Global.main.bounceOnCostumeChange
 	
 	for costumeButton in costumeButtons:
 		costumeButton.setup()
@@ -55,23 +74,22 @@ func _on_button_pressed():
 
 func _on_color_picker_button_picker_created():
 	get_viewport().transparent_bg = false
-	RenderingServer.set_default_clear_color($Background/ColorPickerButton.color)
+	RenderingServer.set_default_clear_color(backgroundColorPickerButton.color)
 	
 func _on_fps_drag_value_changed(value):
-	if $MaxFPS/fpsDrag.value == 241:
-		$MaxFPS/fpslabel.text = "Unlimited"
+	if maxFPSSlider.value == 241:
+		maxFPSValueLabel.text = "Unlimited"
 		return
-	$MaxFPS/fpslabel.text = str(value)
-
+	maxFPSValueLabel.text = str(value)
 
 func _on_confirm_pressed():
-	if $MaxFPS/fpsDrag.value == 241:
+	if maxFPSSlider.value == 241:
 		Engine.max_fps = 0
 		Saving.settings["maxFPS"] = 0
 		Global.pushUpdate("Max fps set to unlimited.")
 		return
-	Engine.max_fps = $MaxFPS/fpsDrag.value
-	Saving.settings["maxFPS"] = $MaxFPS/fpsDrag.value
+	Engine.max_fps = maxFPSSlider.value
+	Saving.settings["maxFPS"] = maxFPSSlider.value
 	
 	Global.pushUpdate("Max fps set to " + str(Engine.max_fps) + ".")
 
@@ -108,19 +126,19 @@ func _on_check_box_toggled(button_pressed):
 		sprite.sprite.texture_filter = new
 	Global.filtering = button_pressed
 	Saving.settings["filtering"] = button_pressed
-	$AntiAliasing/CheckBox.button_pressed = button_pressed
+	antialiasingCheckbox.button_pressed = button_pressed
 	
 	Global.pushUpdate("Texture filtering set to: " + str(button_pressed))
 
 func _on_bounce_force_value_changed(value):
-	$BounceForce/bounce.text = str(value)
+	bounceForceValueLabel.text = str(value)
 	Global.main.bounceSlider = value
 	Saving.settings["bounce"] = value
 	
 	Global.pushUpdate("Bounce force value changed.")
 
 func _on_bounce_gravity_value_changed(value):
-	$BounceGravity/bounce.text = str(value)
+	bounceGravityValueLabel.text = str(value)
 	Global.main.bounceGravity = value
 	Saving.settings["gravity"] = value
 	
@@ -141,17 +159,17 @@ func _on_blink_speed_value_changed(value):
 	if value == 0:
 		Global.blinkSpeed = 0.0
 		Saving.settings["blinkSpeed"] = 0.0
-		$BlinkSpeed/Label.text = "blink speed: 0"
+		blinkSpeedValueLabel.text = "0"
 		return
 	Global.blinkSpeed = 1.0/float(value)
 	Saving.settings["blinkSpeed"] = 1.0/float(value)
-	$BlinkSpeed/Label.text = "blink speed: " + str(value)
+	blinkSpeedValueLabel.text = str(value)
 
 
 func _on_blink_chance_value_changed(value):
 	Global.blinkChance = value
 	Saving.settings["blinkChance"] = value
-	$BlinkChance/Label.text = "blink chance: 1 in " + str(value)
+	blinkChanceValueLabel.text = "1 in " + str(value)
 
 
 func _on_costume_check_toggled(button_pressed):
@@ -160,11 +178,13 @@ func _on_costume_check_toggled(button_pressed):
 
 
 func _process(delta):
-	var g = to_local(get_global_mouse_position())
-	if g.x < 0 or g.y < 0 or g.x > $NinePatchRect.size.x or g.y > $NinePatchRect.size.y:
-		hasMouse = false
-	else:
-		hasMouse = true
+	#var g = to_local(get_global_mouse_position())
+	#TODO put this back in?
+	var g = 0
+	#if g.x < 0 or g.y < 0 or g.x > $NinePatchRect.size.x or g.y > $NinePatchRect.size.y:
+#		hasMouse = false
+#	else:
+#		hasMouse = true
 
 func deleteKey(label,id):
 	Global.main.costumeKeys[id-1] = "null"

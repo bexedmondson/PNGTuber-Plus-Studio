@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bakgnwotiysu1"]
 
 [ext_resource type="Script" uid="uid://c2bj5552rbc8i" path="res://main_scenes/main.gd" id="1_06alx"]
+[ext_resource type="Theme" uid="uid://cifwpto8hyheb" path="res://themes/PNGTuberPro_Popup_theme.tres" id="3_wkprp"]
 [ext_resource type="Texture2D" uid="uid://goff8ioh380e" path="res://ui_scenes/button sprites/buttonBack.png" id="4_xenui"]
 [ext_resource type="Texture2D" uid="uid://da4jthat2oas4" path="res://ui_scenes/button sprites/fancy.png" id="5_75a7k"]
 [ext_resource type="Texture2D" uid="uid://djf1mbv36vr68" path="res://ui_scenes/microphoneSelect/micButtong.png" id="5_fo0ai"]
@@ -14,7 +15,6 @@
 [ext_resource type="Script" uid="uid://dltx2uwpict4m" path="res://ui_scenes/VolumeBar.gd" id="10_2pg0e"]
 [ext_resource type="Texture2D" uid="uid://b38tt6dnu05w4" path="res://ui_scenes/volume/bar3.png" id="11_u7d58"]
 [ext_resource type="Script" uid="uid://becll4yeoufj1" path="res://ui_scenes/volume/Sensitive.gd" id="12_lhsja"]
-[ext_resource type="Texture2D" uid="uid://dcsvrpj5f5bfv" path="res://ui_scenes/button sprites/links.png" id="13_opm22"]
 [ext_resource type="FontFile" uid="uid://ukj8gv8ucqsg" path="res://font/goober_pixel.ttf" id="14_62jp4"]
 [ext_resource type="Script" uid="uid://crknq5cu8jswj" path="res://ui_scenes/volume/volumeSlider.gd" id="14_claq4"]
 [ext_resource type="Script" uid="uid://bdxd1lxnuwqvs" path="res://ui_scenes/volume/sensitiveSlider.gd" id="15_jtkeq"]
@@ -22,8 +22,11 @@
 [ext_resource type="Theme" uid="uid://cas2f55e5bux8" path="res://volume_slider_theme.tres" id="17_m48a7"]
 [ext_resource type="FontFile" uid="uid://1aomxu84k6ov" path="res://font/I-pixel-u.ttf" id="18_aq7ao"]
 [ext_resource type="PackedScene" uid="uid://6ah4i0nx1tu6" path="res://ui_scenes/spriteEditMenu/chain.tscn" id="19_mt1os"]
+[ext_resource type="Texture2D" uid="uid://61j7pv0kwaf6" path="res://textures/ui/kofi_icon.png" id="20_wkprp"]
 [ext_resource type="Texture2D" uid="uid://bs2c34vipucwm" path="res://ui_scenes/button sprites/duplicate.png" id="20_wpwei"]
 [ext_resource type="Texture2D" uid="uid://hunniqiw3ss4" path="res://ui_scenes/spriteEditMenu/failed.png" id="21_6nw1o"]
+[ext_resource type="Script" uid="uid://bytspuinvqxti" path="res://scripts/ui/KofiButton.gd" id="21_m48a7"]
+[ext_resource type="LabelSettings" uid="uid://buopya1tv3gkr" path="res://themes/credit_label_settings.tres" id="23_u50q2"]
 [ext_resource type="Texture2D" uid="uid://c43lmtk2g6dgg" path="res://ui_scenes/spriteEditMenu/arrows.png" id="24_joqmn"]
 [ext_resource type="PackedScene" uid="uid://kj528cw4xqwd" path="res://ui_scenes/settings/settings_menu.tscn" id="25_a76ao"]
 [ext_resource type="Script" uid="uid://b761j8jsfuftt" path="res://main_scenes/MicInputSelect.gd" id="26_17y2u"]
@@ -50,13 +53,6 @@ font_size = 31
 shadow_size = 5
 shadow_color = Color(0, 0, 0, 0.384314)
 shadow_offset = Vector2(2, 2)
-
-[sub_resource type="LabelSettings" id="LabelSettings_qg0do"]
-font = ExtResource("14_62jp4")
-font_size = 31
-font_color = Color(0.701961, 0.701961, 0.701961, 1)
-shadow_size = 4
-shadow_color = Color(0, 0, 0, 0.47451)
 
 [sub_resource type="LabelSettings" id="LabelSettings_xvf50"]
 font = ExtResource("18_aq7ao")
@@ -179,6 +175,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+theme = ExtResource("3_wkprp")
 
 [node name="MicInputSelect" type="Node2D" parent="StandardModeUILayer/MainUI" unique_id=1502577145]
 visible = false
@@ -307,24 +304,6 @@ step = 0.0
 value = 0.25
 script = ExtResource("15_jtkeq")
 
-[node name="Links" type="Sprite2D" parent="StandardModeUILayer/MainUI" unique_id=540486085]
-position = Vector2(630.5, 682)
-texture = ExtResource("13_opm22")
-
-[node name="kofi" type="Button" parent="StandardModeUILayer/MainUI/Links" unique_id=344859046]
-offset_left = -62.0
-offset_top = -28.0
-offset_right = -15.0
-offset_bottom = 27.0
-flat = true
-
-[node name="twitter" type="Button" parent="StandardModeUILayer/MainUI/Links" unique_id=573368049]
-offset_left = -5.0
-offset_top = -29.0
-offset_right = 61.0
-offset_bottom = 27.0
-flat = true
-
 [node name="ZoomLabel" type="Label" parent="StandardModeUILayer/MainUI" unique_id=1899737074]
 layout_mode = 0
 offset_left = 941.5
@@ -334,32 +313,84 @@ offset_bottom = 665.0
 text = "Zoom : 100%"
 horizontal_alignment = 2
 
-[node name="VersionLabels" type="Node2D" parent="StandardModeUILayer/MainUI" unique_id=23974403]
-position = Vector2(1281.5, 716)
+[node name="CreditsVBoxContainer" type="VBoxContainer" parent="StandardModeUILayer/MainUI" unique_id=2111852037]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = -196.0
+offset_right = 283.0
+offset_bottom = -15.0
+grow_vertical = 0
+theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="StandardModeUILayer/MainUI/VersionLabels" unique_id=363435654]
-offset_left = -713.0
-offset_top = -94.0
-offset_right = -575.0
-offset_bottom = -60.0
+[node name="HBoxContainer4" type="HBoxContainer" parent="StandardModeUILayer/MainUI/CreditsVBoxContainer" unique_id=1087875061]
+layout_mode = 2
+
+[node name="PNGTuberPlusStudioLabel" type="Label" parent="StandardModeUILayer/MainUI/CreditsVBoxContainer/HBoxContainer4" unique_id=363435654]
+layout_mode = 2
 text = "PNGTuber Plus Studio"
 label_settings = SubResource("LabelSettings_w0f1f")
 
-[node name="Label2" type="Label" parent="StandardModeUILayer/MainUI/VersionLabels" unique_id=1775080164]
-offset_left = -713.0
-offset_top = -130.0
-offset_right = -441.0
-offset_bottom = -96.0
-text = "kaiakairos and GrouganDev's"
-label_settings = SubResource("LabelSettings_qg0do")
-
-[node name="versionNo" type="Label" parent="StandardModeUILayer/MainUI/VersionLabels" unique_id=1193895825]
-offset_left = -499.0
-offset_top = -83.0
-offset_right = -361.0
-offset_bottom = -49.0
+[node name="VersionNoLabel" type="Label" parent="StandardModeUILayer/MainUI/CreditsVBoxContainer/HBoxContainer4" unique_id=1193895825]
+layout_mode = 2
+size_flags_vertical = 8
 text = "v1.0.5"
 label_settings = SubResource("LabelSettings_xvf50")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StandardModeUILayer/MainUI/CreditsVBoxContainer" unique_id=554341340]
+layout_mode = 2
+
+[node name="kofi" type="Button" parent="StandardModeUILayer/MainUI/CreditsVBoxContainer/HBoxContainer" unique_id=344859046]
+custom_minimum_size = Vector2(36, 40)
+layout_mode = 2
+icon = ExtResource("20_wkprp")
+flat = true
+expand_icon = true
+script = ExtResource("21_m48a7")
+url = "https://ko-fi.com/kaiakairos"
+
+[node name="CreditLabel" type="Label" parent="StandardModeUILayer/MainUI/CreditsVBoxContainer/HBoxContainer" unique_id=1775080164]
+layout_mode = 2
+text = "kaiakairos"
+label_settings = ExtResource("23_u50q2")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="StandardModeUILayer/MainUI/CreditsVBoxContainer" unique_id=806575649]
+layout_mode = 2
+
+[node name="kofi" type="Button" parent="StandardModeUILayer/MainUI/CreditsVBoxContainer/HBoxContainer2" unique_id=2111161122]
+self_modulate = Color(0.40704632, 0.4070463, 0.40704632, 1)
+custom_minimum_size = Vector2(36, 40)
+layout_mode = 2
+disabled = true
+icon = ExtResource("20_wkprp")
+flat = true
+expand_icon = true
+script = ExtResource("21_m48a7")
+url = "https://ko-fi.com/kaiakairos"
+
+[node name="CreditLabel" type="Label" parent="StandardModeUILayer/MainUI/CreditsVBoxContainer/HBoxContainer2" unique_id=1470695300]
+layout_mode = 2
+text = "GrouganDev"
+label_settings = ExtResource("23_u50q2")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="StandardModeUILayer/MainUI/CreditsVBoxContainer" unique_id=1873375436]
+layout_mode = 2
+
+[node name="kofi" type="Button" parent="StandardModeUILayer/MainUI/CreditsVBoxContainer/HBoxContainer3" unique_id=792129409]
+custom_minimum_size = Vector2(36, 40)
+layout_mode = 2
+icon = ExtResource("20_wkprp")
+flat = true
+expand_icon = true
+script = ExtResource("21_m48a7")
+url = "https://ko-fi.com/bexedmondson"
+
+[node name="CreditLabel" type="Label" parent="StandardModeUILayer/MainUI/CreditsVBoxContainer/HBoxContainer3" unique_id=1838474503]
+layout_mode = 2
+text = "bex edmondson"
+label_settings = ExtResource("23_u50q2")
 
 [node name="SettingsMenu" parent="StandardModeUILayer" unique_id=1244130526 instance=ExtResource("25_a76ao")]
 visible = false
@@ -566,6 +597,7 @@ z_index = 4096
 position = Vector2(-28, 11)
 
 [node name="ViewerArrows" type="Node2D" parent="." unique_id=1286930633]
+visible = false
 z_index = 4096
 
 [node name="Arrows" type="Sprite2D" parent="ViewerArrows" unique_id=1029600252]
@@ -578,7 +610,7 @@ rotation = 3.14159
 texture = ExtResource("24_joqmn")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1533953347]
-position = Vector2(360, 360)
+position = Vector2(640, 360)
 
 [node name="BackgroundInputCapture" type="BackgroundInputCapture" parent="." unique_id=1620033436]
 position = Vector2(-28, -28)
@@ -765,8 +797,9 @@ filters = PackedStringArray("*.wav", "*.ogg", "*.mp3")
 [connection signal="pressed" from="StandardModeUILayer/MainUI/MicButton/Button" to="." method="_on_microphone_menu_button_pressed"]
 [connection signal="pressed" from="StandardModeUILayer/MainUI/SettingsButton/settingsButtons" to="." method="_on_settings_buttons_pressed"]
 [connection signal="pressed" from="StandardModeUILayer/MainUI/EditModeButtonBGTextureRect/EditModeButton" to="." method="swapMode"]
-[connection signal="pressed" from="StandardModeUILayer/MainUI/Links/kofi" to="." method="_on_kofi_pressed"]
-[connection signal="pressed" from="StandardModeUILayer/MainUI/Links/twitter" to="." method="_on_twitter_pressed"]
+[connection signal="pressed" from="StandardModeUILayer/MainUI/CreditsVBoxContainer/HBoxContainer/kofi" to="StandardModeUILayer/MainUI/CreditsVBoxContainer/HBoxContainer/kofi" method="_on_kofi_pressed"]
+[connection signal="pressed" from="StandardModeUILayer/MainUI/CreditsVBoxContainer/HBoxContainer2/kofi" to="StandardModeUILayer/MainUI/CreditsVBoxContainer/HBoxContainer2/kofi" method="_on_kofi_pressed"]
+[connection signal="pressed" from="StandardModeUILayer/MainUI/CreditsVBoxContainer/HBoxContainer3/kofi" to="StandardModeUILayer/MainUI/CreditsVBoxContainer/HBoxContainer3/kofi" method="_on_kofi_pressed"]
 [connection signal="pressed" from="EditControls/Add/addButton" to="." method="_on_add_button_pressed"]
 [connection signal="pressed" from="EditControls/Link/linkButton" to="." method="_on_link_button_pressed"]
 [connection signal="pressed" from="EditControls/Exit/Button2" to="." method="swapMode"]

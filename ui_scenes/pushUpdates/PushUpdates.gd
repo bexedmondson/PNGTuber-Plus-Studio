@@ -20,7 +20,6 @@ func pushUpdate(text):
 	if count > 5:
 		vbox.get_child(0).queue_free()
 	
-	
 	modulate.a = 1.0
 	tick = 0
 	set_process(true)

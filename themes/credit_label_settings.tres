@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://buopya1tv3gkr"]
+
+[ext_resource type="FontFile" uid="uid://ukj8gv8ucqsg" path="res://font/goober_pixel.ttf" id="1_fkd3v"]
+
+[resource]
+font = ExtResource("1_fkd3v")
+font_size = 31
+font_color = Color(0.701961, 0.701961, 0.701961, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 0.47451)

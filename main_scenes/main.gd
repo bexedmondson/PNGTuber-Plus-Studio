@@ -539,16 +539,6 @@ func _on_link_button_pressed():
 	Global.pushUpdate("Linking sprite...")
 
 
-func _on_kofi_pressed():
-	OS.shell_open("https://ko-fi.com/kaiakairos")
-	Global.pushUpdate("Support me on ko-fi!")
-
-
-func _on_twitter_pressed():
-	OS.shell_open("https://twitter.com/kaiakairos")
-	Global.pushUpdate("Follow me on twitter!")
-
-
 func _on_replace_button_pressed():
 	if Global.heldSprite == null:
 		return

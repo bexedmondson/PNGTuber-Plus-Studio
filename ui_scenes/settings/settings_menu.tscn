@@ -127,13 +127,61 @@ expand_icon = true
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 
+[node name="GreenColorRect" type="ColorRect" parent="ScrollContainer/SettingsMenuVBoxContainer/WindowBackgroundSettings/greenButton" unique_id=482624943]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -17.5
+offset_top = -17.5
+offset_right = 17.5
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 1, 0, 1)
+
 [node name="blueButton" type="Button" parent="ScrollContainer/SettingsMenuVBoxContainer/WindowBackgroundSettings" unique_id=1559079585]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 
+[node name="BlueColorRect" type="ColorRect" parent="ScrollContainer/SettingsMenuVBoxContainer/WindowBackgroundSettings/blueButton" unique_id=1043285276]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -17.5
+offset_top = -17.5
+offset_right = 17.5
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 1, 1)
+
 [node name="magentaButton" type="Button" parent="ScrollContainer/SettingsMenuVBoxContainer/WindowBackgroundSettings" unique_id=278092113]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+
+[node name="MagentaColorRect" type="ColorRect" parent="ScrollContainer/SettingsMenuVBoxContainer/WindowBackgroundSettings/magentaButton" unique_id=136465239]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -17.5
+offset_top = -17.5
+offset_right = 17.5
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0, 1, 1)
 
 [node name="ColorPickerButton" type="ColorPickerButton" parent="ScrollContainer/SettingsMenuVBoxContainer/WindowBackgroundSettings" unique_id=2059411776]
 custom_minimum_size = Vector2(50, 50)

@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://goff8ioh380e" path="res://ui_scenes/button sprites/buttonBack.png" id="4_xenui"]
 [ext_resource type="Texture2D" uid="uid://da4jthat2oas4" path="res://ui_scenes/button sprites/fancy.png" id="5_75a7k"]
 [ext_resource type="Texture2D" uid="uid://djf1mbv36vr68" path="res://ui_scenes/microphoneSelect/micButton.png" id="5_u50q2"]
+[ext_resource type="Script" uid="uid://cjgo3gsno7w05" path="res://scripts/ui/MicSelectionMenuButton.gd" id="6_5ok1y"]
 [ext_resource type="Texture2D" uid="uid://cg3nqowbcixpy" path="res://ui_scenes/volume/barOver.png" id="7_ldv55"]
 [ext_resource type="Texture2D" uid="uid://cpwoby3dan2qc" path="res://ui_scenes/settings/settingsWheel.png" id="7_prm87"]
 [ext_resource type="Texture2D" uid="uid://7277tveyaer1" path="res://ui_scenes/volume/bar.png" id="8_8ojw0"]
@@ -86,7 +87,7 @@ shadow_color = Color(0, 0, 0, 0.835294)
 font = ExtResource("14_62jp4")
 font_size = 31
 
-[node name="Main" type="Node2D" unique_id=60720459 node_paths=PackedStringArray("originMotion", "origin", "camera", "controlPanel", "editControls", "tutorial", "spriteViewer", "viewerArrows", "spriteList", "fileDialog", "replaceDialog", "saveDialog", "loadDialog", "audioDialog", "lines", "settingsMenu", "pushUpdates", "shadow", "volumeSlider", "sensitiveSlider", "failedToAddSpriteMessage", "zoomLabel", "screenCoverCollisionShape2D", "micInputSelect", "arrowsDown", "arrowsUp", "areaMoveEditMenuUp", "areaMoveEditMenuDown")]
+[node name="Main" type="Node2D" unique_id=60720459 node_paths=PackedStringArray("originMotion", "origin", "camera", "controlPanel", "editControls", "tutorial", "spriteViewer", "viewerArrows", "spriteList", "fileDialog", "replaceDialog", "saveDialog", "loadDialog", "audioDialog", "lines", "settingsMenu", "pushUpdates", "shadow", "volumeSlider", "sensitiveSlider", "failedToAddSpriteMessage", "zoomLabel", "screenCoverCollisionShape2D", "arrowsDown", "arrowsUp", "areaMoveEditMenuUp", "areaMoveEditMenuDown")]
 script = ExtResource("1_06alx")
 originMotion = NodePath("OriginMotion")
 origin = NodePath("OriginMotion/Origin")
@@ -111,7 +112,6 @@ sensitiveSlider = NodePath("StandardModeUILayer/MainUI/sensitiveSlider")
 failedToAddSpriteMessage = NodePath("InfoPopupCanvasLayer/FailedToAddSpriteMessage")
 zoomLabel = NodePath("StandardModeUILayer/MainUI/ZoomLabel")
 screenCoverCollisionShape2D = NodePath("EditControls/ScreenCover/ScreenCoverCollisionShape2D")
-micInputSelect = NodePath("StandardModeUILayer/MainUI/MicInputSelect")
 arrowsDown = NodePath("ViewerArrows/Arrows")
 arrowsUp = NodePath("ViewerArrows/Arrows2")
 areaMoveEditMenuUp = NodePath("EditControls/MoveMenuUp")
@@ -184,22 +184,6 @@ grow_vertical = 2
 mouse_filter = 1
 theme = ExtResource("3_u50q2")
 
-[node name="MicInputSelect" type="Node2D" parent="StandardModeUILayer/MainUI" unique_id=1502577145]
-z_index = 4096
-position = Vector2(922, 447)
-script = ExtResource("26_17y2u")
-
-[node name="ScrollContainer" type="ScrollContainer" parent="StandardModeUILayer/MainUI/MicInputSelect" unique_id=2006828468]
-offset_right = 301.0
-offset_bottom = 483.0
-horizontal_scroll_mode = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="StandardModeUILayer/MainUI/MicInputSelect/ScrollContainer" unique_id=1110331372]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-alignment = 2
-
 [node name="VBoxContainer" type="VBoxContainer" parent="StandardModeUILayer/MainUI" unique_id=710355115]
 layout_mode = 1
 anchors_preset = 3
@@ -216,11 +200,41 @@ grow_vertical = 0
 theme_override_constants/separation = 10
 alignment = 2
 
-[node name="MicSelectButton" type="Button" parent="StandardModeUILayer/MainUI/VBoxContainer" unique_id=1574072551]
+[node name="MicSelectionMenuButton" type="Button" parent="StandardModeUILayer/MainUI/VBoxContainer" unique_id=1574072551 node_paths=PackedStringArray("micInputSelect")]
 layout_mode = 2
 size_flags_horizontal = 8
 icon = ExtResource("5_u50q2")
 flat = true
+script = ExtResource("6_5ok1y")
+micInputSelect = NodePath("MicInputSelect")
+
+[node name="MicInputSelect" type="Control" parent="StandardModeUILayer/MainUI/VBoxContainer/MicSelectionMenuButton" unique_id=1310906906 node_paths=PackedStringArray("micOptionButtonPlaceholder")]
+visible = false
+z_index = 4096
+anchors_preset = 0
+offset_left = -306.357
+offset_top = -110.0
+offset_right = -306.357
+offset_bottom = -110.0
+script = ExtResource("26_17y2u")
+micOptionButtonPlaceholder = NodePath("ScrollContainer/VBoxContainer/MicSelectButton")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="StandardModeUILayer/MainUI/VBoxContainer/MicSelectionMenuButton/MicInputSelect" unique_id=2006828468]
+layout_mode = 0
+offset_left = 37.99998
+offset_top = -356.0
+offset_right = 338.99997
+offset_bottom = 107.54199
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StandardModeUILayer/MainUI/VBoxContainer/MicSelectionMenuButton/MicInputSelect/ScrollContainer" unique_id=1110331372]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 10
+alignment = 2
+
+[node name="MicSelectButton" parent="StandardModeUILayer/MainUI/VBoxContainer/MicSelectionMenuButton/MicInputSelect/ScrollContainer/VBoxContainer" unique_id=542540845 instance_placeholder="res://ui_scenes/microphoneSelect/mic_select_button.tscn"]
+layout_mode = 2
 
 [node name="SettingsButton" type="Button" parent="StandardModeUILayer/MainUI/VBoxContainer" unique_id=1330403731]
 layout_mode = 2
@@ -797,7 +811,7 @@ file_mode = 0
 access = 1
 filters = PackedStringArray("*.wav", "*.ogg", "*.mp3")
 
-[connection signal="pressed" from="StandardModeUILayer/MainUI/VBoxContainer/MicSelectButton" to="." method="_on_microphone_menu_button_pressed"]
+[connection signal="pressed" from="StandardModeUILayer/MainUI/VBoxContainer/MicSelectionMenuButton" to="StandardModeUILayer/MainUI/VBoxContainer/MicSelectionMenuButton" method="_on_microphone_menu_button_pressed"]
 [connection signal="pressed" from="StandardModeUILayer/MainUI/VBoxContainer/SettingsButton" to="." method="_on_settings_buttons_pressed"]
 [connection signal="pressed" from="StandardModeUILayer/MainUI/VBoxContainer/EditModeButtonBGTextureRect/EditModeButton" to="." method="swapMode"]
 [connection signal="pressed" from="StandardModeUILayer/MainUI/CreditsVBoxContainer/HBoxContainer/kofi" to="StandardModeUILayer/MainUI/CreditsVBoxContainer/HBoxContainer/kofi" method="_on_kofi_pressed"]

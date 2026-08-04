@@ -36,8 +36,6 @@ var editMode = true
 
 @export var screenCoverCollisionShape2D : CollisionShape2D
 
-@export var micInputSelect : Node2D
-
 @export var arrowsDown : Sprite2D
 @export var arrowsUp : Sprite2D
 
@@ -667,11 +665,6 @@ func moveSpriteMenu(delta):
 		Global.spriteEdit.position.y = 66
 	elif Global.spriteEdit.position.y < size.y-windowLength:
 		Global.spriteEdit.position.y = size.y-windowLength
-
-
-func _on_microphone_menu_button_pressed():
-	micInputSelect.visible = !micInputSelect.visible
-	settingsMenu.visible = false
 
 
 func _on_settings_buttons_pressed():

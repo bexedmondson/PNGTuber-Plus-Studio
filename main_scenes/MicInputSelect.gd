@@ -1,17 +1,16 @@
-extends Node2D
+class_name MicInputSelect
+extends Control
 
-@onready var buttonScene = preload("res://ui_scenes/microphoneSelect/mic_select_button.tscn")
-@onready var container = $ScrollContainer/VBoxContainer
+@export var micOptionButtonPlaceholder : Node
 
-func _ready():
-	showMicMenu()
+var micOptions : Array
 
-func showMicMenu():
-	for child in container.get_children():
-		child.queue_free()
+func setupMicMenu():
+	for micOption in micOptions:
+		micOption.queue_free()
 	
 	var inputList = AudioServer.get_input_device_list()
 	for input in inputList:
-		var newButton = buttonScene.instantiate()
-		newButton.micName = input
-		container.add_child(newButton)
+		var newButton = micOptionButtonPlaceholder.create_instance()
+		newButton.setup(self, input)
+		micOptions.append(newButton)

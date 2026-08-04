@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bakgnwotiysu1"]
 
 [ext_resource type="Script" uid="uid://c2bj5552rbc8i" path="res://main_scenes/main.gd" id="1_06alx"]
-[ext_resource type="Script" uid="uid://cmm3k545eb6os" path="res://main_scenes/ControlPanel.gd" id="4_5ygs2"]
 [ext_resource type="Texture2D" uid="uid://goff8ioh380e" path="res://ui_scenes/button sprites/buttonBack.png" id="4_xenui"]
 [ext_resource type="Texture2D" uid="uid://da4jthat2oas4" path="res://ui_scenes/button sprites/fancy.png" id="5_75a7k"]
 [ext_resource type="Texture2D" uid="uid://djf1mbv36vr68" path="res://ui_scenes/microphoneSelect/micButtong.png" id="5_fo0ai"]
@@ -9,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cpwoby3dan2qc" path="res://ui_scenes/settings/settingsWheel.png" id="7_prm87"]
 [ext_resource type="Texture2D" uid="uid://7277tveyaer1" path="res://ui_scenes/volume/bar.png" id="8_8ojw0"]
 [ext_resource type="PackedScene" uid="uid://fxku5nddarp8" path="res://ui_scenes/mouse/mouse_cursor.tscn" id="8_fd33p"]
+[ext_resource type="Script" uid="uid://bvriihxetbrey" path="res://scripts/ui/EditModeButton.gd" id="8_m48a7"]
 [ext_resource type="Texture2D" uid="uid://b3f8r3fwq3eiq" path="res://ui_scenes/volume/bar2.png" id="9_7p50a"]
 [ext_resource type="PackedScene" uid="uid://d3anahesvdgfh" path="res://ui_scenes/spriteEditMenu/sprite_viewer.tscn" id="9_uqv8p"]
 [ext_resource type="Script" uid="uid://dltx2uwpict4m" path="res://ui_scenes/VolumeBar.gd" id="10_2pg0e"]
@@ -39,6 +39,10 @@ vertical = true
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_wkprp"]
 thickness = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7ljg"]
+atlas = ExtResource("5_75a7k")
+region = Rect2(0, 0, 60, 60)
 
 [sub_resource type="LabelSettings" id="LabelSettings_w0f1f"]
 font = ExtResource("14_62jp4")
@@ -99,12 +103,12 @@ lines = NodePath("EditBackgroundCanvasLayer/Lines")
 settingsMenu = NodePath("StandardModeUILayer/SettingsMenu")
 pushUpdates = NodePath("InfoPopupCanvasLayer/PushUpdates")
 shadow = NodePath("shadowSprite")
-volumeSlider = NodePath("ControlPanel/volumeSlider")
-sensitiveSlider = NodePath("ControlPanel/sensitiveSlider")
+volumeSlider = NodePath("StandardModeUILayer/MainUI/volumeSlider")
+sensitiveSlider = NodePath("StandardModeUILayer/MainUI/sensitiveSlider")
 failedToAddSpriteMessage = NodePath("InfoPopupCanvasLayer/FailedToAddSpriteMessage")
-zoomLabel = NodePath("ControlPanel/ZoomLabel")
+zoomLabel = NodePath("StandardModeUILayer/MainUI/ZoomLabel")
 screenCoverCollisionShape2D = NodePath("EditControls/ScreenCover/ScreenCoverCollisionShape2D")
-micInputSelect = NodePath("ControlPanel/MicInputSelect")
+micInputSelect = NodePath("StandardModeUILayer/MainUI/MicInputSelect")
 arrowsDown = NodePath("ViewerArrows/Arrows")
 arrowsUp = NodePath("ViewerArrows/Arrows2")
 areaMoveEditMenuUp = NodePath("EditControls/MoveMenuUp")
@@ -164,68 +168,97 @@ position = Vector2(360, 360)
 [node name="ControlPanel" type="Node2D" parent="." unique_id=546810505]
 z_index = 4090
 position = Vector2(720, 720)
-script = ExtResource("4_5ygs2")
 
-[node name="MicInputSelect" type="Node2D" parent="ControlPanel" unique_id=1502577145]
+[node name="StandardModeUILayer" type="CanvasLayer" parent="." unique_id=1408062257]
+
+[node name="MainUI" type="Control" parent="StandardModeUILayer" unique_id=286524723]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="MicInputSelect" type="Node2D" parent="StandardModeUILayer/MainUI" unique_id=1502577145]
 visible = false
 z_index = 4096
-position = Vector2(-313, -585)
+position = Vector2(407, 135)
 script = ExtResource("26_17y2u")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="ControlPanel/MicInputSelect" unique_id=2006828468]
+[node name="ScrollContainer" type="ScrollContainer" parent="StandardModeUILayer/MainUI/MicInputSelect" unique_id=2006828468]
 offset_right = 301.0
 offset_bottom = 483.0
 horizontal_scroll_mode = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ControlPanel/MicInputSelect/ScrollContainer" unique_id=1110331372]
+[node name="VBoxContainer" type="VBoxContainer" parent="StandardModeUILayer/MainUI/MicInputSelect/ScrollContainer" unique_id=1110331372]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 2
 
-[node name="MicButtong" type="Sprite2D" parent="ControlPanel" unique_id=1433219398]
-position = Vector2(-36, -79)
+[node name="MicButton" type="Sprite2D" parent="StandardModeUILayer/MainUI" unique_id=1433219398]
+position = Vector2(1245.5, 637)
 texture = ExtResource("5_fo0ai")
 
-[node name="Button" type="Button" parent="ControlPanel/MicButtong" unique_id=1574072551]
+[node name="Button" type="Button" parent="StandardModeUILayer/MainUI/MicButton" unique_id=1574072551]
 offset_left = -13.0
 offset_top = -12.0
 offset_right = 14.0
 offset_bottom = 14.0
 flat = true
 
-[node name="SettingsButton" type="Sprite2D" parent="ControlPanel" unique_id=2132032904]
-position = Vector2(-35, -115)
+[node name="SettingsButton" type="Sprite2D" parent="StandardModeUILayer/MainUI" unique_id=2132032904]
+position = Vector2(1246.5, 601)
 texture = ExtResource("7_prm87")
 
-[node name="settingsButtons" type="Button" parent="ControlPanel/SettingsButton" unique_id=1330403731]
+[node name="settingsButtons" type="Button" parent="StandardModeUILayer/MainUI/SettingsButton" unique_id=1330403731]
 offset_left = -13.0
 offset_top = -12.0
 offset_right = 14.0
 offset_bottom = 14.0
 flat = true
 
-[node name="Edit" type="Sprite2D" parent="ControlPanel" unique_id=462566562]
-texture_repeat = 2
-position = Vector2(-36, -31)
+[node name="EditModeButtonBGTextureRect" type="TextureRect" parent="StandardModeUILayer/MainUI" unique_id=1339340436]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 581.5
+offset_top = 301.0
+offset_right = 629.5
+offset_bottom = 349.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("4_xenui")
 
-[node name="Button" type="Button" parent="ControlPanel/Edit" unique_id=1440829418]
-offset_left = -23.0
-offset_top = -23.0
-offset_right = 23.0
-offset_bottom = 23.0
+[node name="EditModeButton" type="Button" parent="StandardModeUILayer/MainUI/EditModeButtonBGTextureRect" unique_id=1440829418]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -34.0
+offset_right = 34.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+icon = SubResource("AtlasTexture_r7ljg")
 flat = true
+expand_icon = true
+script = ExtResource("8_m48a7")
 
-[node name="Fancy" type="Sprite2D" parent="ControlPanel/Edit" unique_id=259673479]
-texture = ExtResource("5_75a7k")
-hframes = 7
-
-[node name="VolumeBar" type="TextureProgressBar" parent="ControlPanel" unique_id=236034995]
-offset_left = -584.0
-offset_top = -27.0
-offset_right = -72.0
-offset_bottom = -11.0
+[node name="VolumeBar" type="TextureProgressBar" parent="StandardModeUILayer/MainUI" unique_id=236034995]
+layout_mode = 0
+offset_left = 697.5
+offset_top = 689.0
+offset_right = 1209.5
+offset_bottom = 705.0
 max_value = 0.2
 step = 0.0
 value = 0.015
@@ -235,11 +268,12 @@ texture_over = ExtResource("7_ldv55")
 texture_progress = ExtResource("9_7p50a")
 script = ExtResource("10_2pg0e")
 
-[node name="Sensitive" type="TextureProgressBar" parent="ControlPanel" unique_id=564013058]
-offset_left = -584.0
-offset_top = -51.0
-offset_right = -72.0
-offset_bottom = -35.0
+[node name="Sensitive" type="TextureProgressBar" parent="StandardModeUILayer/MainUI" unique_id=564013058]
+layout_mode = 0
+offset_left = 697.5
+offset_top = 665.0
+offset_right = 1209.5
+offset_bottom = 681.0
 max_value = 1.0
 step = 0.01
 value = 1.0
@@ -249,57 +283,61 @@ texture_over = ExtResource("7_ldv55")
 texture_progress = ExtResource("11_u7d58")
 script = ExtResource("12_lhsja")
 
-[node name="volumeSlider" type="HSlider" parent="ControlPanel" unique_id=2006453182]
-offset_left = -595.0
-offset_top = -29.0
-offset_right = -62.0
-offset_bottom = 3.0
+[node name="volumeSlider" type="HSlider" parent="StandardModeUILayer/MainUI" unique_id=2006453182]
+layout_mode = 0
+offset_left = 686.5
+offset_top = 687.0
+offset_right = 1219.5
+offset_bottom = 719.0
 theme = ExtResource("17_m48a7")
 max_value = 0.2
 step = 0.0
 value = 0.185
 script = ExtResource("14_claq4")
 
-[node name="sensitiveSlider" type="HSlider" parent="ControlPanel" unique_id=1751785582]
-offset_left = -595.0
-offset_top = -53.0
-offset_right = -62.0
-offset_bottom = -21.0
+[node name="sensitiveSlider" type="HSlider" parent="StandardModeUILayer/MainUI" unique_id=1751785582]
+layout_mode = 0
+offset_left = 686.5
+offset_top = 663.0
+offset_right = 1219.5
+offset_bottom = 695.0
 theme = ExtResource("17_m48a7")
 max_value = 1.0
 step = 0.0
 value = 0.25
 script = ExtResource("15_jtkeq")
 
-[node name="Links" type="Sprite2D" parent="ControlPanel" unique_id=540486085]
-position = Vector2(-651, -34)
+[node name="Links" type="Sprite2D" parent="StandardModeUILayer/MainUI" unique_id=540486085]
+position = Vector2(630.5, 682)
 texture = ExtResource("13_opm22")
 
-[node name="kofi" type="Button" parent="ControlPanel/Links" unique_id=344859046]
+[node name="kofi" type="Button" parent="StandardModeUILayer/MainUI/Links" unique_id=344859046]
 offset_left = -62.0
 offset_top = -28.0
 offset_right = -15.0
 offset_bottom = 27.0
 flat = true
 
-[node name="twitter" type="Button" parent="ControlPanel/Links" unique_id=573368049]
+[node name="twitter" type="Button" parent="StandardModeUILayer/MainUI/Links" unique_id=573368049]
 offset_left = -5.0
 offset_top = -29.0
 offset_right = 61.0
 offset_bottom = 27.0
 flat = true
 
-[node name="ZoomLabel" type="Label" parent="ControlPanel" unique_id=1899737074]
-offset_left = -340.0
-offset_top = -77.0
-offset_right = -74.0
-offset_bottom = -51.0
+[node name="ZoomLabel" type="Label" parent="StandardModeUILayer/MainUI" unique_id=1899737074]
+layout_mode = 0
+offset_left = 941.5
+offset_top = 639.0
+offset_right = 1207.5
+offset_bottom = 665.0
 text = "Zoom : 100%"
 horizontal_alignment = 2
 
-[node name="VersionLabels" type="Node2D" parent="ControlPanel" unique_id=23974403]
+[node name="VersionLabels" type="Node2D" parent="StandardModeUILayer/MainUI" unique_id=23974403]
+position = Vector2(1281.5, 716)
 
-[node name="Label" type="Label" parent="ControlPanel/VersionLabels" unique_id=363435654]
+[node name="Label" type="Label" parent="StandardModeUILayer/MainUI/VersionLabels" unique_id=363435654]
 offset_left = -713.0
 offset_top = -94.0
 offset_right = -575.0
@@ -307,7 +345,7 @@ offset_bottom = -60.0
 text = "PNGTuber Plus Studio"
 label_settings = SubResource("LabelSettings_w0f1f")
 
-[node name="Label2" type="Label" parent="ControlPanel/VersionLabels" unique_id=1775080164]
+[node name="Label2" type="Label" parent="StandardModeUILayer/MainUI/VersionLabels" unique_id=1775080164]
 offset_left = -713.0
 offset_top = -130.0
 offset_right = -441.0
@@ -315,15 +353,13 @@ offset_bottom = -96.0
 text = "kaiakairos and GrouganDev's"
 label_settings = SubResource("LabelSettings_qg0do")
 
-[node name="versionNo" type="Label" parent="ControlPanel/VersionLabels" unique_id=1193895825]
+[node name="versionNo" type="Label" parent="StandardModeUILayer/MainUI/VersionLabels" unique_id=1193895825]
 offset_left = -499.0
 offset_top = -83.0
 offset_right = -361.0
 offset_bottom = -49.0
 text = "v1.0.5"
 label_settings = SubResource("LabelSettings_xvf50")
-
-[node name="StandardModeUILayer" type="CanvasLayer" parent="." unique_id=1408062257]
 
 [node name="SettingsMenu" parent="StandardModeUILayer" unique_id=1244130526 instance=ExtResource("25_a76ao")]
 visible = false
@@ -339,6 +375,7 @@ grow_vertical = 1
 [node name="EditModeCanvasLayer" type="CanvasLayer" parent="." unique_id=2075418943]
 
 [node name="EditControls" type="Node2D" parent="." unique_id=1411964796]
+visible = false
 z_index = 4090
 script = ExtResource("17_bf1ic")
 
@@ -725,11 +762,11 @@ file_mode = 0
 access = 1
 filters = PackedStringArray("*.wav", "*.ogg", "*.mp3")
 
-[connection signal="pressed" from="ControlPanel/MicButtong/Button" to="." method="_on_microphone_menu_button_pressed"]
-[connection signal="pressed" from="ControlPanel/SettingsButton/settingsButtons" to="." method="_on_settings_buttons_pressed"]
-[connection signal="pressed" from="ControlPanel/Edit/Button" to="." method="swapMode"]
-[connection signal="pressed" from="ControlPanel/Links/kofi" to="." method="_on_kofi_pressed"]
-[connection signal="pressed" from="ControlPanel/Links/twitter" to="." method="_on_twitter_pressed"]
+[connection signal="pressed" from="StandardModeUILayer/MainUI/MicButton/Button" to="." method="_on_microphone_menu_button_pressed"]
+[connection signal="pressed" from="StandardModeUILayer/MainUI/SettingsButton/settingsButtons" to="." method="_on_settings_buttons_pressed"]
+[connection signal="pressed" from="StandardModeUILayer/MainUI/EditModeButtonBGTextureRect/EditModeButton" to="." method="swapMode"]
+[connection signal="pressed" from="StandardModeUILayer/MainUI/Links/kofi" to="." method="_on_kofi_pressed"]
+[connection signal="pressed" from="StandardModeUILayer/MainUI/Links/twitter" to="." method="_on_twitter_pressed"]
 [connection signal="pressed" from="EditControls/Add/addButton" to="." method="_on_add_button_pressed"]
 [connection signal="pressed" from="EditControls/Link/linkButton" to="." method="_on_link_button_pressed"]
 [connection signal="pressed" from="EditControls/Exit/Button2" to="." method="swapMode"]

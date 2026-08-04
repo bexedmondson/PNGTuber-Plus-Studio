@@ -348,55 +348,45 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 3
 
-[node name="CostumeButton" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs/ScrollContainer/VBoxContainer" unique_id=29525414 node_paths=PackedStringArray("settingsMenu") instance=ExtResource("9_f35cv")]
+[node name="CostumeButton" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs/ScrollContainer/VBoxContainer" unique_id=29525414 instance=ExtResource("9_f35cv")]
 layout_mode = 2
 costumeIndex = 1
-settingsMenu = NodePath("")
 
-[node name="CostumeButton2" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs/ScrollContainer/VBoxContainer" unique_id=1655439391 node_paths=PackedStringArray("settingsMenu") instance=ExtResource("9_f35cv")]
+[node name="CostumeButton2" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs/ScrollContainer/VBoxContainer" unique_id=1655439391 instance=ExtResource("9_f35cv")]
 layout_mode = 2
 costumeIndex = 2
-settingsMenu = NodePath("")
 
-[node name="CostumeButton3" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs/ScrollContainer/VBoxContainer" unique_id=448990594 node_paths=PackedStringArray("settingsMenu") instance=ExtResource("9_f35cv")]
+[node name="CostumeButton3" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs/ScrollContainer/VBoxContainer" unique_id=448990594 instance=ExtResource("9_f35cv")]
 layout_mode = 2
 costumeIndex = 3
-settingsMenu = NodePath("")
 
-[node name="CostumeButton4" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs/ScrollContainer/VBoxContainer" unique_id=896332695 node_paths=PackedStringArray("settingsMenu") instance=ExtResource("9_f35cv")]
+[node name="CostumeButton4" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs/ScrollContainer/VBoxContainer" unique_id=896332695 instance=ExtResource("9_f35cv")]
 layout_mode = 2
 costumeIndex = 4
-settingsMenu = NodePath("")
 
-[node name="CostumeButton5" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs/ScrollContainer/VBoxContainer" unique_id=1925153661 node_paths=PackedStringArray("settingsMenu") instance=ExtResource("9_f35cv")]
+[node name="CostumeButton5" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs/ScrollContainer/VBoxContainer" unique_id=1925153661 instance=ExtResource("9_f35cv")]
 layout_mode = 2
 costumeIndex = 5
-settingsMenu = NodePath("")
 
-[node name="CostumeButton6" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs/ScrollContainer/VBoxContainer" unique_id=1941667473 node_paths=PackedStringArray("settingsMenu") instance=ExtResource("9_f35cv")]
+[node name="CostumeButton6" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs/ScrollContainer/VBoxContainer" unique_id=1941667473 instance=ExtResource("9_f35cv")]
 layout_mode = 2
 costumeIndex = 6
-settingsMenu = NodePath("")
 
-[node name="CostumeButton7" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs/ScrollContainer/VBoxContainer" unique_id=752248370 node_paths=PackedStringArray("settingsMenu") instance=ExtResource("9_f35cv")]
+[node name="CostumeButton7" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs/ScrollContainer/VBoxContainer" unique_id=752248370 instance=ExtResource("9_f35cv")]
 layout_mode = 2
 costumeIndex = 7
-settingsMenu = NodePath("")
 
-[node name="CostumeButton8" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs/ScrollContainer/VBoxContainer" unique_id=402896381 node_paths=PackedStringArray("settingsMenu") instance=ExtResource("9_f35cv")]
+[node name="CostumeButton8" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs/ScrollContainer/VBoxContainer" unique_id=402896381 instance=ExtResource("9_f35cv")]
 layout_mode = 2
 costumeIndex = 8
-settingsMenu = NodePath("")
 
-[node name="CostumeButton9" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs/ScrollContainer/VBoxContainer" unique_id=116693947 node_paths=PackedStringArray("settingsMenu") instance=ExtResource("9_f35cv")]
+[node name="CostumeButton9" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs/ScrollContainer/VBoxContainer" unique_id=116693947 instance=ExtResource("9_f35cv")]
 layout_mode = 2
 costumeIndex = 9
-settingsMenu = NodePath("")
 
-[node name="CostumeButton10" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs/ScrollContainer/VBoxContainer" unique_id=1145610988 node_paths=PackedStringArray("settingsMenu") instance=ExtResource("9_f35cv")]
+[node name="CostumeButton10" parent="ScrollContainer/SettingsMenuVBoxContainer/HSplitContainer/CostumeInputs/ScrollContainer/VBoxContainer" unique_id=1145610988 instance=ExtResource("9_f35cv")]
 layout_mode = 2
 costumeIndex = 10
-settingsMenu = NodePath("")
 
 [node name="HSeparator4" type="HSeparator" parent="ScrollContainer/SettingsMenuVBoxContainer" unique_id=1528398159]
 layout_mode = 2

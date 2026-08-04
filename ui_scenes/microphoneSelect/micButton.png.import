@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://djf1mbv36vr68"
-path="res://.godot/imported/micButtong.png-15ddc94949ace3b271af08acc8cbb2a9.ctex"
+path="res://.godot/imported/micButton.png-d0509804ed6865c43474bea9bb0d6a11.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui_scenes/microphoneSelect/micButtong.png"
-dest_files=["res://.godot/imported/micButtong.png-15ddc94949ace3b271af08acc8cbb2a9.ctex"]
+source_file="res://ui_scenes/microphoneSelect/micButton.png"
+dest_files=["res://.godot/imported/micButton.png-d0509804ed6865c43474bea9bb0d6a11.ctex"]
 
 [params]
 

@@ -1,0 +1,8 @@
+[gd_resource type="Theme" format=3 uid="uid://c2q5brmak80vn"]
+
+[ext_resource type="StyleBox" uid="uid://bkqp5jjorruax" path="res://themes/popup_bg_stylebox.tres" id="1_3nxjg"]
+
+[resource]
+HBoxContainer/constants/separation = 15
+PanelContainer/styles/panel = ExtResource("1_3nxjg")
+VBoxContainer/constants/separation = 10

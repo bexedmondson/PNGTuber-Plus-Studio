@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://bakgnwotiysu1"]
 
 [ext_resource type="Script" uid="uid://c2bj5552rbc8i" path="res://main_scenes/main.gd" id="1_06alx"]
-[ext_resource type="Theme" uid="uid://cifwpto8hyheb" path="res://themes/PNGTuberPro_Popup_theme.tres" id="3_wkprp"]
+[ext_resource type="Theme" uid="uid://c2q5brmak80vn" path="res://themes/MainUI_PNGTuberPro_theme.tres" id="3_u50q2"]
 [ext_resource type="Texture2D" uid="uid://goff8ioh380e" path="res://ui_scenes/button sprites/buttonBack.png" id="4_xenui"]
 [ext_resource type="Texture2D" uid="uid://da4jthat2oas4" path="res://ui_scenes/button sprites/fancy.png" id="5_75a7k"]
-[ext_resource type="Texture2D" uid="uid://djf1mbv36vr68" path="res://ui_scenes/microphoneSelect/micButtong.png" id="5_fo0ai"]
+[ext_resource type="Texture2D" uid="uid://djf1mbv36vr68" path="res://ui_scenes/microphoneSelect/micButton.png" id="5_u50q2"]
 [ext_resource type="Texture2D" uid="uid://cg3nqowbcixpy" path="res://ui_scenes/volume/barOver.png" id="7_ldv55"]
 [ext_resource type="Texture2D" uid="uid://cpwoby3dan2qc" path="res://ui_scenes/settings/settingsWheel.png" id="7_prm87"]
 [ext_resource type="Texture2D" uid="uid://7277tveyaer1" path="res://ui_scenes/volume/bar.png" id="8_8ojw0"]
@@ -46,6 +46,13 @@ thickness = 2
 [sub_resource type="AtlasTexture" id="AtlasTexture_r7ljg"]
 atlas = ExtResource("5_75a7k")
 region = Rect2(0, 0, 60, 60)
+
+[sub_resource type="LabelSettings" id="LabelSettings_u50q2"]
+font = ExtResource("14_62jp4")
+font_size = 31
+font_color = Color(0.84227264, 0.8422726, 0.8422726, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 0.47451)
 
 [sub_resource type="LabelSettings" id="LabelSettings_w0f1f"]
 font = ExtResource("14_62jp4")
@@ -175,12 +182,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-theme = ExtResource("3_wkprp")
+theme = ExtResource("3_u50q2")
 
 [node name="MicInputSelect" type="Node2D" parent="StandardModeUILayer/MainUI" unique_id=1502577145]
-visible = false
 z_index = 4096
-position = Vector2(407, 135)
+position = Vector2(922, 447)
 script = ExtResource("26_17y2u")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="StandardModeUILayer/MainUI/MicInputSelect" unique_id=2006828468]
@@ -194,44 +200,40 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 2
 
-[node name="MicButton" type="Sprite2D" parent="StandardModeUILayer/MainUI" unique_id=1433219398]
-position = Vector2(1245.5, 637)
-texture = ExtResource("5_fo0ai")
-
-[node name="Button" type="Button" parent="StandardModeUILayer/MainUI/MicButton" unique_id=1574072551]
-offset_left = -13.0
-offset_top = -12.0
-offset_right = 14.0
-offset_bottom = 14.0
-flat = true
-
-[node name="SettingsButton" type="Sprite2D" parent="StandardModeUILayer/MainUI" unique_id=2132032904]
-position = Vector2(1246.5, 601)
-texture = ExtResource("7_prm87")
-
-[node name="settingsButtons" type="Button" parent="StandardModeUILayer/MainUI/SettingsButton" unique_id=1330403731]
-offset_left = -13.0
-offset_top = -12.0
-offset_right = 14.0
-offset_bottom = 14.0
-flat = true
-
-[node name="EditModeButtonBGTextureRect" type="TextureRect" parent="StandardModeUILayer/MainUI" unique_id=1339340436]
+[node name="VBoxContainer" type="VBoxContainer" parent="StandardModeUILayer/MainUI" unique_id=710355115]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 581.5
-offset_top = 301.0
-offset_right = 629.5
-offset_bottom = 349.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -63.0
+offset_top = -173.0
+offset_right = -15.0
+offset_bottom = -15.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="MicSelectButton" type="Button" parent="StandardModeUILayer/MainUI/VBoxContainer" unique_id=1574072551]
+layout_mode = 2
+size_flags_horizontal = 8
+icon = ExtResource("5_u50q2")
+flat = true
+
+[node name="SettingsButton" type="Button" parent="StandardModeUILayer/MainUI/VBoxContainer" unique_id=1330403731]
+layout_mode = 2
+size_flags_horizontal = 8
+icon = ExtResource("7_prm87")
+flat = true
+
+[node name="EditModeButtonBGTextureRect" type="TextureRect" parent="StandardModeUILayer/MainUI/VBoxContainer" unique_id=1339340436]
+layout_mode = 2
+size_flags_horizontal = 8
 texture = ExtResource("4_xenui")
 
-[node name="EditModeButton" type="Button" parent="StandardModeUILayer/MainUI/EditModeButtonBGTextureRect" unique_id=1440829418]
+[node name="EditModeButton" type="Button" parent="StandardModeUILayer/MainUI/VBoxContainer/EditModeButtonBGTextureRect" unique_id=1440829418]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -307,10 +309,11 @@ script = ExtResource("15_jtkeq")
 [node name="ZoomLabel" type="Label" parent="StandardModeUILayer/MainUI" unique_id=1899737074]
 layout_mode = 0
 offset_left = 941.5
-offset_top = 639.0
+offset_top = 629.473
 offset_right = 1207.5
-offset_bottom = 665.0
+offset_bottom = 660.473
 text = "Zoom : 100%"
+label_settings = SubResource("LabelSettings_u50q2")
 horizontal_alignment = 2
 
 [node name="CreditsVBoxContainer" type="VBoxContainer" parent="StandardModeUILayer/MainUI" unique_id=2111852037]
@@ -794,9 +797,9 @@ file_mode = 0
 access = 1
 filters = PackedStringArray("*.wav", "*.ogg", "*.mp3")
 
-[connection signal="pressed" from="StandardModeUILayer/MainUI/MicButton/Button" to="." method="_on_microphone_menu_button_pressed"]
-[connection signal="pressed" from="StandardModeUILayer/MainUI/SettingsButton/settingsButtons" to="." method="_on_settings_buttons_pressed"]
-[connection signal="pressed" from="StandardModeUILayer/MainUI/EditModeButtonBGTextureRect/EditModeButton" to="." method="swapMode"]
+[connection signal="pressed" from="StandardModeUILayer/MainUI/VBoxContainer/MicSelectButton" to="." method="_on_microphone_menu_button_pressed"]
+[connection signal="pressed" from="StandardModeUILayer/MainUI/VBoxContainer/SettingsButton" to="." method="_on_settings_buttons_pressed"]
+[connection signal="pressed" from="StandardModeUILayer/MainUI/VBoxContainer/EditModeButtonBGTextureRect/EditModeButton" to="." method="swapMode"]
 [connection signal="pressed" from="StandardModeUILayer/MainUI/CreditsVBoxContainer/HBoxContainer/kofi" to="StandardModeUILayer/MainUI/CreditsVBoxContainer/HBoxContainer/kofi" method="_on_kofi_pressed"]
 [connection signal="pressed" from="StandardModeUILayer/MainUI/CreditsVBoxContainer/HBoxContainer2/kofi" to="StandardModeUILayer/MainUI/CreditsVBoxContainer/HBoxContainer2/kofi" method="_on_kofi_pressed"]
 [connection signal="pressed" from="StandardModeUILayer/MainUI/CreditsVBoxContainer/HBoxContainer3/kofi" to="StandardModeUILayer/MainUI/CreditsVBoxContainer/HBoxContainer3/kofi" method="_on_kofi_pressed"]

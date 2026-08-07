@@ -1,0 +1,298 @@
+[gd_scene format=3 uid="uid://do5qyr3eyrkha"]
+
+[ext_resource type="Script" uid="uid://ccsp0shlpt72a" path="res://main_scenes/EditControls.gd" id="1_m1ila"]
+[ext_resource type="Texture2D" uid="uid://goff8ioh380e" path="res://ui_scenes/button sprites/buttonBack.png" id="2_1l3dp"]
+[ext_resource type="Script" uid="uid://bvriihxetbrey" path="res://scripts/ui/ScaleOnInteractButton.gd" id="3_1l3dp"]
+[ext_resource type="Texture2D" uid="uid://da4jthat2oas4" path="res://ui_scenes/button sprites/fancy.png" id="3_cukdo"]
+[ext_resource type="Texture2D" uid="uid://bs2c34vipucwm" path="res://ui_scenes/button sprites/duplicate.png" id="4_va0tv"]
+[ext_resource type="PackedScene" uid="uid://d3anahesvdgfh" path="res://ui_scenes/spriteEditMenu/sprite_viewer.tscn" id="5_7v88m"]
+[ext_resource type="PackedScene" uid="uid://gaijtw7euy5g" path="res://ui_scenes/spriteList/viewer.tscn" id="6_odudf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1ila"]
+atlas = ExtResource("3_cukdo")
+region = Rect2(60, 0, 60, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4sd5"]
+size = Vector2(48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cukdo"]
+atlas = ExtResource("3_cukdo")
+region = Rect2(120, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_va0tv"]
+atlas = ExtResource("3_cukdo")
+region = Rect2(180, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7v88m"]
+atlas = ExtResource("3_cukdo")
+region = Rect2(240, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odudf"]
+atlas = ExtResource("3_cukdo")
+region = Rect2(420, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i25m8"]
+atlas = ExtResource("3_cukdo")
+region = Rect2(300, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31yp5"]
+atlas = ExtResource("3_cukdo")
+region = Rect2(360, 0, 60, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebmai"]
+size = Vector2(4294, 1879)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1hek3"]
+size = Vector2(245, 116)
+
+[node name="EditControls" type="Control" unique_id=770344991 node_paths=PackedStringArray("spriteViewer", "spriteList", "screenCoverCollisionShape2D", "areaMoveEditMenuUp", "areaMoveEditMenuDown", "fileDialog", "replaceDialog", "saveDialog", "loadDialog")]
+z_index = 4090
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m1ila")
+spriteViewer = NodePath("SpriteViewer")
+spriteList = NodePath("SpriteList")
+screenCoverCollisionShape2D = NodePath("ScreenCover/ScreenCoverCollisionShape2D")
+areaMoveEditMenuUp = NodePath("MoveMenuUp")
+areaMoveEditMenuDown = NodePath("MoveMenuDown")
+fileDialog = NodePath("FileDialog")
+replaceDialog = NodePath("ReplaceDialog")
+saveDialog = NodePath("SaveDialog")
+loadDialog = NodePath("LoadDialog")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1909499550]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ExitButton" type="Button" parent="HBoxContainer" unique_id=162437735]
+layout_mode = 2
+tooltip_text = "Exit edit mode"
+icon = SubResource("AtlasTexture_m1ila")
+flat = true
+script = ExtResource("3_1l3dp")
+
+[node name="Add" type="Sprite2D" parent="HBoxContainer" unique_id=1199541683]
+position = Vector2(104, 32)
+texture = ExtResource("2_1l3dp")
+
+[node name="Fancy3" type="Sprite2D" parent="HBoxContainer/Add" unique_id=1440625969]
+position = Vector2(1, -1)
+texture = ExtResource("3_cukdo")
+hframes = 7
+frame = 2
+
+[node name="Link" type="Sprite2D" parent="HBoxContainer" unique_id=1290996400]
+position = Vector2(176, 32)
+texture = ExtResource("2_1l3dp")
+
+[node name="Fancy2" type="Sprite2D" parent="HBoxContainer/Link" unique_id=1089386015]
+position = Vector2(1, 0)
+texture = ExtResource("3_cukdo")
+hframes = 7
+frame = 3
+
+[node name="Area2D" type="Area2D" parent="HBoxContainer/Link" unique_id=852050255]
+position = Vector2(-176, -32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Link/Area2D" unique_id=995146068]
+position = Vector2(176, 32)
+shape = SubResource("RectangleShape2D_f4sd5")
+
+[node name="Area2D2" type="Area2D" parent="HBoxContainer/Link" unique_id=818130113]
+position = Vector2(-320, -33)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Link/Area2D2" unique_id=1414492771]
+position = Vector2(176, 32)
+shape = SubResource("RectangleShape2D_f4sd5")
+
+[node name="ReplaceSprite" type="Sprite2D" parent="HBoxContainer" unique_id=532204052]
+position = Vector2(248, 32)
+texture = ExtResource("2_1l3dp")
+
+[node name="Fancy6" type="Sprite2D" parent="HBoxContainer/ReplaceSprite" unique_id=1222133502]
+position = Vector2(0, -1)
+texture = ExtResource("3_cukdo")
+hframes = 7
+frame = 4
+
+[node name="Area2D2" type="Area2D" parent="HBoxContainer/ReplaceSprite" unique_id=442497223]
+position = Vector2(-176, -32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/ReplaceSprite/Area2D2" unique_id=1259024045]
+position = Vector2(176, 32)
+shape = SubResource("RectangleShape2D_f4sd5")
+
+[node name="DuplicateSprite" type="Sprite2D" parent="HBoxContainer" unique_id=1109645071]
+position = Vector2(320, 32)
+texture = ExtResource("2_1l3dp")
+
+[node name="Fancy" type="Sprite2D" parent="HBoxContainer/DuplicateSprite" unique_id=2043859876]
+position = Vector2(0, -1)
+texture = ExtResource("4_va0tv")
+
+[node name="Area2D2" type="Area2D" parent="HBoxContainer/DuplicateSprite" unique_id=1746802861]
+position = Vector2(-176, -32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/DuplicateSprite/Area2D2" unique_id=542011824]
+position = Vector2(176, 32)
+shape = SubResource("RectangleShape2D_f4sd5")
+
+[node name="Save" type="Sprite2D" parent="HBoxContainer" unique_id=95597507]
+position = Vector2(392, 32)
+texture = ExtResource("2_1l3dp")
+
+[node name="Fancy4" type="Sprite2D" parent="HBoxContainer/Save" unique_id=1847930988]
+position = Vector2(1, -1)
+texture = ExtResource("3_cukdo")
+hframes = 7
+frame = 5
+
+[node name="Load" type="Sprite2D" parent="HBoxContainer" unique_id=296668499]
+position = Vector2(464, 32)
+texture = ExtResource("2_1l3dp")
+
+[node name="Fancy5" type="Sprite2D" parent="HBoxContainer/Load" unique_id=712411739]
+position = Vector2(0, -5)
+texture = ExtResource("3_cukdo")
+hframes = 7
+frame = 6
+
+[node name="addButton" type="Button" parent="HBoxContainer" unique_id=1530938135]
+layout_mode = 2
+tooltip_text = "Add new sprite"
+icon = SubResource("AtlasTexture_cukdo")
+flat = true
+script = ExtResource("3_1l3dp")
+
+[node name="linkButton" type="Button" parent="HBoxContainer" unique_id=167609124]
+layout_mode = 2
+tooltip_text = "Link sprite"
+icon = SubResource("AtlasTexture_va0tv")
+flat = true
+script = ExtResource("3_1l3dp")
+
+[node name="replaceButton" type="Button" parent="HBoxContainer" unique_id=244506416]
+layout_mode = 2
+tooltip_text = "Replace sprite"
+icon = SubResource("AtlasTexture_7v88m")
+flat = true
+script = ExtResource("3_1l3dp")
+
+[node name="duplicateButton" type="Button" parent="HBoxContainer" unique_id=875565617]
+layout_mode = 2
+tooltip_text = "Duplicate sprite"
+icon = SubResource("AtlasTexture_odudf")
+flat = true
+script = ExtResource("3_1l3dp")
+
+[node name="saveButton" type="Button" parent="HBoxContainer" unique_id=767507697]
+layout_mode = 2
+tooltip_text = "Save avatar"
+icon = SubResource("AtlasTexture_i25m8")
+flat = true
+script = ExtResource("3_1l3dp")
+
+[node name="loadButton" type="Button" parent="HBoxContainer" unique_id=1913360989]
+layout_mode = 2
+tooltip_text = "Load avatar"
+icon = SubResource("AtlasTexture_31yp5")
+flat = true
+script = ExtResource("3_1l3dp")
+
+[node name="ScreenCover" type="Area2D" parent="." unique_id=12060652]
+visible = false
+
+[node name="ScreenCoverCollisionShape2D" type="CollisionShape2D" parent="ScreenCover" unique_id=1038012427]
+position = Vector2(2132, 928.5)
+shape = SubResource("RectangleShape2D_ebmai")
+disabled = true
+
+[node name="SpriteViewer" parent="." unique_id=1242948407 instance=ExtResource("5_7v88m")]
+z_index = 4094
+layout_mode = 1
+offset_left = 9.0
+offset_top = 66.0
+offset_right = 9.0
+offset_bottom = 66.0
+
+[node name="MoveMenuUp" type="Area2D" parent="." unique_id=82646505]
+collision_layer = 0
+collision_mask = 2048
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MoveMenuUp" unique_id=613432774]
+position = Vector2(122.5, 58)
+shape = SubResource("RectangleShape2D_1hek3")
+
+[node name="MoveMenuDown" type="Area2D" parent="." unique_id=2077981567]
+position = Vector2(0, 720)
+collision_layer = 0
+collision_mask = 2048
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MoveMenuDown" unique_id=1341340533]
+position = Vector2(122, -58)
+shape = SubResource("RectangleShape2D_1hek3")
+
+[node name="SpriteList" parent="." unique_id=371432789 instance=ExtResource("6_odudf")]
+z_index = 4065
+position = Vector2(486, 12)
+
+[node name="FileDialog" type="FileDialog" parent="." unique_id=1533488673 groups=["filedialog"]]
+oversampling_override = 1.0
+title = "Add Image"
+initial_position = 1
+size = Vector2i(614, 360)
+ok_button_text = "Open"
+mode_overrides_title = false
+file_mode = 0
+access = 1
+filters = PackedStringArray("*.png")
+
+[node name="ReplaceDialog" type="FileDialog" parent="." unique_id=2021377967 groups=["filedialog"]]
+oversampling_override = 1.0
+title = "Add Image"
+initial_position = 1
+size = Vector2i(614, 360)
+ok_button_text = "Open"
+mode_overrides_title = false
+file_mode = 0
+access = 1
+filters = PackedStringArray("*.png")
+
+[node name="SaveDialog" type="FileDialog" parent="." unique_id=384046781 groups=["filedialog"]]
+oversampling_override = 1.0
+title = "Save Avatar"
+initial_position = 1
+size = Vector2i(614, 360)
+ok_button_text = "Save"
+mode_overrides_title = false
+access = 1
+filters = PackedStringArray("*.save")
+
+[node name="LoadDialog" type="FileDialog" parent="." unique_id=1604245727 groups=["filedialog"]]
+oversampling_override = 1.0
+title = "Load Avatar"
+initial_position = 1
+size = Vector2i(614, 360)
+ok_button_text = "Open"
+mode_overrides_title = false
+file_mode = 0
+access = 1
+filters = PackedStringArray("*.save")
+show_hidden_files = true
+
+[connection signal="pressed" from="HBoxContainer/addButton" to="." method="_on_add_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/linkButton" to="." method="_on_link_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/replaceButton" to="." method="_on_replace_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/duplicateButton" to="." method="_on_duplicate_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/saveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/loadButton" to="." method="_on_load_button_pressed"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
+[connection signal="file_selected" from="ReplaceDialog" to="." method="_on_replace_dialog_file_selected"]
+[connection signal="visibility_changed" from="ReplaceDialog" to="." method="_on_replace_dialog_visibility_changed"]
+[connection signal="file_selected" from="SaveDialog" to="." method="_on_save_dialog_file_selected"]
+[connection signal="file_selected" from="LoadDialog" to="." method="_on_load_dialog_load_selected"]

@@ -10,29 +10,26 @@
 [ext_resource type="Texture2D" uid="uid://cpwoby3dan2qc" path="res://ui_scenes/settings/settingsWheel.png" id="7_prm87"]
 [ext_resource type="Texture2D" uid="uid://7277tveyaer1" path="res://ui_scenes/volume/bar.png" id="8_8ojw0"]
 [ext_resource type="PackedScene" uid="uid://fxku5nddarp8" path="res://ui_scenes/mouse/mouse_cursor.tscn" id="8_fd33p"]
-[ext_resource type="Script" uid="uid://bvriihxetbrey" path="res://scripts/ui/EditModeButton.gd" id="8_m48a7"]
+[ext_resource type="Script" uid="uid://bvriihxetbrey" path="res://scripts/ui/ScaleOnInteractButton.gd" id="8_m48a7"]
 [ext_resource type="Texture2D" uid="uid://b3f8r3fwq3eiq" path="res://ui_scenes/volume/bar2.png" id="9_7p50a"]
-[ext_resource type="PackedScene" uid="uid://d3anahesvdgfh" path="res://ui_scenes/spriteEditMenu/sprite_viewer.tscn" id="9_uqv8p"]
 [ext_resource type="Script" uid="uid://dltx2uwpict4m" path="res://ui_scenes/VolumeBar.gd" id="10_2pg0e"]
 [ext_resource type="Texture2D" uid="uid://b38tt6dnu05w4" path="res://ui_scenes/volume/bar3.png" id="11_u7d58"]
 [ext_resource type="Script" uid="uid://becll4yeoufj1" path="res://ui_scenes/volume/Sensitive.gd" id="12_lhsja"]
 [ext_resource type="FontFile" uid="uid://ukj8gv8ucqsg" path="res://font/goober_pixel.ttf" id="14_62jp4"]
 [ext_resource type="Script" uid="uid://crknq5cu8jswj" path="res://ui_scenes/volume/volumeSlider.gd" id="14_claq4"]
 [ext_resource type="Script" uid="uid://bdxd1lxnuwqvs" path="res://ui_scenes/volume/sensitiveSlider.gd" id="15_jtkeq"]
-[ext_resource type="Script" uid="uid://ccsp0shlpt72a" path="res://main_scenes/EditControls.gd" id="17_bf1ic"]
 [ext_resource type="Theme" uid="uid://cas2f55e5bux8" path="res://volume_slider_theme.tres" id="17_m48a7"]
 [ext_resource type="FontFile" uid="uid://1aomxu84k6ov" path="res://font/I-pixel-u.ttf" id="18_aq7ao"]
 [ext_resource type="PackedScene" uid="uid://6ah4i0nx1tu6" path="res://ui_scenes/spriteEditMenu/chain.tscn" id="19_mt1os"]
 [ext_resource type="Texture2D" uid="uid://61j7pv0kwaf6" path="res://textures/ui/kofi_icon.png" id="20_wkprp"]
-[ext_resource type="Texture2D" uid="uid://bs2c34vipucwm" path="res://ui_scenes/button sprites/duplicate.png" id="20_wpwei"]
 [ext_resource type="Texture2D" uid="uid://hunniqiw3ss4" path="res://ui_scenes/spriteEditMenu/failed.png" id="21_6nw1o"]
 [ext_resource type="Script" uid="uid://bytspuinvqxti" path="res://scripts/ui/KofiButton.gd" id="21_m48a7"]
 [ext_resource type="LabelSettings" uid="uid://buopya1tv3gkr" path="res://themes/credit_label_settings.tres" id="23_u50q2"]
 [ext_resource type="Texture2D" uid="uid://c43lmtk2g6dgg" path="res://ui_scenes/spriteEditMenu/arrows.png" id="24_joqmn"]
 [ext_resource type="PackedScene" uid="uid://kj528cw4xqwd" path="res://ui_scenes/settings/settings_menu.tscn" id="25_a76ao"]
 [ext_resource type="Script" uid="uid://b761j8jsfuftt" path="res://main_scenes/MicInputSelect.gd" id="26_17y2u"]
+[ext_resource type="PackedScene" uid="uid://do5qyr3eyrkha" path="res://main_scenes/edit_controls.tscn" id="26_m48a7"]
 [ext_resource type="Texture2D" uid="uid://23rqddatjku3" path="res://ui_scenes/mouse/tooltipBox.png" id="27_4n53v"]
-[ext_resource type="PackedScene" uid="uid://gaijtw7euy5g" path="res://ui_scenes/spriteList/viewer.tscn" id="27_614d2"]
 [ext_resource type="Script" uid="uid://dc1njty4tep4v" path="res://main_scenes/Tutorial.gd" id="27_ivpmi"]
 [ext_resource type="Texture2D" uid="uid://dj1ffgeyacc8g" path="res://ui_scenes/settings/info.png" id="27_og5v1"]
 [ext_resource type="PackedScene" uid="uid://cgto2hfjsb1oe" path="res://ui_scenes/pushUpdates/push_updates.tscn" id="30_q43vl"]
@@ -67,15 +64,6 @@ font = ExtResource("18_aq7ao")
 font_color = Color(0, 0, 0, 0.384314)
 shadow_size = 4
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4sd5"]
-size = Vector2(48, 48)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebmai"]
-size = Vector2(4294, 1879)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1hek3"]
-size = Vector2(245, 116)
-
 [sub_resource type="LabelSettings" id="LabelSettings_iu6ix"]
 line_spacing = 0.0
 font = ExtResource("14_62jp4")
@@ -87,21 +75,15 @@ shadow_color = Color(0, 0, 0, 0.835294)
 font = ExtResource("14_62jp4")
 font_size = 31
 
-[node name="Main" type="Node2D" unique_id=60720459 node_paths=PackedStringArray("originMotion", "origin", "camera", "mainUI", "editControls", "tutorial", "spriteViewer", "viewerArrows", "spriteList", "fileDialog", "replaceDialog", "saveDialog", "loadDialog", "audioDialog", "lines", "settingsMenu", "pushUpdates", "shadow", "volumeSlider", "sensitiveSlider", "failedToAddSpriteMessage", "zoomLabel", "screenCoverCollisionShape2D", "arrowsDown", "arrowsUp", "areaMoveEditMenuUp", "areaMoveEditMenuDown")]
+[node name="Main" type="Node2D" unique_id=60720459 node_paths=PackedStringArray("originMotion", "origin", "camera", "mainUI", "editControls", "tutorial", "viewerArrows", "audioDialog", "lines", "settingsMenu", "pushUpdates", "shadow", "volumeSlider", "sensitiveSlider", "failedToAddSpriteMessage", "zoomLabel", "arrowsDown", "arrowsUp")]
 script = ExtResource("1_06alx")
 originMotion = NodePath("OriginMotion")
 origin = NodePath("OriginMotion/Origin")
 camera = NodePath("Camera2D")
 mainUI = NodePath("StandardModeUILayer/MainUI")
-editControls = NodePath("EditControls")
+editControls = NodePath("EditModeCanvasLayer/EditControls")
 tutorial = NodePath("InfoPopupCanvasLayer/Tutorial")
-spriteViewer = NodePath("EditControls/SpriteViewer")
 viewerArrows = NodePath("ViewerArrows")
-spriteList = NodePath("EditControls/SpriteList")
-fileDialog = NodePath("FileDialog")
-replaceDialog = NodePath("ReplaceDialog")
-saveDialog = NodePath("SaveDialog")
-loadDialog = NodePath("LoadDialog")
 audioDialog = NodePath("AudioFileDialog")
 lines = NodePath("EditBackgroundCanvasLayer/Lines")
 settingsMenu = NodePath("StandardModeUILayer/SettingsMenu")
@@ -111,11 +93,8 @@ volumeSlider = NodePath("StandardModeUILayer/MainUI/volumeSlider")
 sensitiveSlider = NodePath("StandardModeUILayer/MainUI/sensitiveSlider")
 failedToAddSpriteMessage = NodePath("InfoPopupCanvasLayer/FailedToAddSpriteMessage")
 zoomLabel = NodePath("StandardModeUILayer/MainUI/ZoomLabel")
-screenCoverCollisionShape2D = NodePath("EditControls/ScreenCover/ScreenCoverCollisionShape2D")
 arrowsDown = NodePath("ViewerArrows/Arrows")
 arrowsUp = NodePath("ViewerArrows/Arrows2")
-areaMoveEditMenuUp = NodePath("EditControls/MoveMenuUp")
-areaMoveEditMenuDown = NodePath("EditControls/MoveMenuDown")
 
 [node name="EditBackgroundCanvasLayer" type="CanvasLayer" parent="." unique_id=11251667]
 layer = -1
@@ -418,192 +397,9 @@ grow_vertical = 1
 
 [node name="EditModeCanvasLayer" type="CanvasLayer" parent="." unique_id=2075418943]
 
-[node name="EditControls" type="Node2D" parent="." unique_id=1411964796]
+[node name="EditControls" parent="EditModeCanvasLayer" unique_id=1972615727 node_paths=PackedStringArray("main") instance=ExtResource("26_m48a7")]
 visible = false
-z_index = 4090
-script = ExtResource("17_bf1ic")
-
-[node name="Add" type="Sprite2D" parent="EditControls" unique_id=2082180739]
-position = Vector2(104, 32)
-texture = ExtResource("4_xenui")
-
-[node name="Fancy3" type="Sprite2D" parent="EditControls/Add" unique_id=484550276]
-position = Vector2(1, -1)
-texture = ExtResource("5_75a7k")
-hframes = 7
-frame = 2
-
-[node name="addButton" type="Button" parent="EditControls/Add" unique_id=1098491759]
-offset_left = -23.0
-offset_top = -23.0
-offset_right = 23.0
-offset_bottom = 23.0
-flat = true
-
-[node name="Link" type="Sprite2D" parent="EditControls" unique_id=1203471601]
-position = Vector2(176, 32)
-texture = ExtResource("4_xenui")
-
-[node name="Fancy2" type="Sprite2D" parent="EditControls/Link" unique_id=518928556]
-position = Vector2(1, 0)
-texture = ExtResource("5_75a7k")
-hframes = 7
-frame = 3
-
-[node name="linkButton" type="Button" parent="EditControls/Link" unique_id=260640162]
-offset_left = -23.0
-offset_top = -23.0
-offset_right = 23.0
-offset_bottom = 23.0
-flat = true
-
-[node name="Area2D" type="Area2D" parent="EditControls/Link" unique_id=603310914]
-position = Vector2(-176, -32)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EditControls/Link/Area2D" unique_id=1278245911]
-position = Vector2(176, 32)
-shape = SubResource("RectangleShape2D_f4sd5")
-
-[node name="Area2D2" type="Area2D" parent="EditControls/Link" unique_id=908252692]
-position = Vector2(-320, -33)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EditControls/Link/Area2D2" unique_id=412107758]
-position = Vector2(176, 32)
-shape = SubResource("RectangleShape2D_f4sd5")
-
-[node name="Exit" type="Sprite2D" parent="EditControls" unique_id=1594207537]
-self_modulate = Color(0.784314, 0.341176, 0.466667, 1)
-position = Vector2(32, 32)
-texture = ExtResource("4_xenui")
-
-[node name="Fancy3" type="Sprite2D" parent="EditControls/Exit" unique_id=1983578251]
-position = Vector2(-1, -2)
-texture = ExtResource("5_75a7k")
-hframes = 7
-frame = 1
-
-[node name="Button2" type="Button" parent="EditControls/Exit" unique_id=44654754]
-offset_left = -23.0
-offset_top = -23.0
-offset_right = 23.0
-offset_bottom = 23.0
-flat = true
-
-[node name="Save" type="Sprite2D" parent="EditControls" unique_id=1932371593]
-position = Vector2(392, 32)
-texture = ExtResource("4_xenui")
-
-[node name="saveButton" type="Button" parent="EditControls/Save" unique_id=1374422084]
-offset_left = -23.0
-offset_top = -23.0
-offset_right = 23.0
-offset_bottom = 23.0
-flat = true
-
-[node name="Fancy4" type="Sprite2D" parent="EditControls/Save" unique_id=1538838916]
-position = Vector2(1, -1)
-texture = ExtResource("5_75a7k")
-hframes = 7
-frame = 5
-
-[node name="Load" type="Sprite2D" parent="EditControls" unique_id=355359507]
-position = Vector2(464, 32)
-texture = ExtResource("4_xenui")
-
-[node name="loadButton" type="Button" parent="EditControls/Load" unique_id=518780281]
-offset_left = -23.0
-offset_top = -23.0
-offset_right = 23.0
-offset_bottom = 23.0
-flat = true
-
-[node name="Fancy5" type="Sprite2D" parent="EditControls/Load" unique_id=890094378]
-position = Vector2(0, -5)
-texture = ExtResource("5_75a7k")
-hframes = 7
-frame = 6
-
-[node name="ReplaceSprite" type="Sprite2D" parent="EditControls" unique_id=1845795452]
-position = Vector2(248, 32)
-texture = ExtResource("4_xenui")
-
-[node name="Fancy6" type="Sprite2D" parent="EditControls/ReplaceSprite" unique_id=1023884544]
-position = Vector2(0, -1)
-texture = ExtResource("5_75a7k")
-hframes = 7
-frame = 4
-
-[node name="replaceButton" type="Button" parent="EditControls/ReplaceSprite" unique_id=950314771]
-offset_left = -23.0
-offset_top = -23.0
-offset_right = 23.0
-offset_bottom = 23.0
-flat = true
-
-[node name="Area2D2" type="Area2D" parent="EditControls/ReplaceSprite" unique_id=1777766554]
-position = Vector2(-176, -32)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EditControls/ReplaceSprite/Area2D2" unique_id=304437327]
-position = Vector2(176, 32)
-shape = SubResource("RectangleShape2D_f4sd5")
-
-[node name="DuplicateSprite" type="Sprite2D" parent="EditControls" unique_id=676929606]
-position = Vector2(320, 32)
-texture = ExtResource("4_xenui")
-
-[node name="Fancy" type="Sprite2D" parent="EditControls/DuplicateSprite" unique_id=2122973929]
-position = Vector2(0, -1)
-texture = ExtResource("20_wpwei")
-
-[node name="duplicateButton" type="Button" parent="EditControls/DuplicateSprite" unique_id=1107040855]
-offset_left = -23.0
-offset_top = -23.0
-offset_right = 23.0
-offset_bottom = 23.0
-flat = true
-
-[node name="Area2D2" type="Area2D" parent="EditControls/DuplicateSprite" unique_id=633484845]
-position = Vector2(-176, -32)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EditControls/DuplicateSprite/Area2D2" unique_id=1816134883]
-position = Vector2(176, 32)
-shape = SubResource("RectangleShape2D_f4sd5")
-
-[node name="ScreenCover" type="Area2D" parent="EditControls" unique_id=808018584]
-visible = false
-
-[node name="ScreenCoverCollisionShape2D" type="CollisionShape2D" parent="EditControls/ScreenCover" unique_id=672640469]
-position = Vector2(2132, 928.5)
-shape = SubResource("RectangleShape2D_ebmai")
-disabled = true
-
-[node name="SpriteViewer" parent="EditControls" unique_id=843198087 instance=ExtResource("9_uqv8p")]
-z_index = 4094
-offset_left = 9.0
-offset_top = 66.0
-offset_right = 9.0
-offset_bottom = 66.0
-
-[node name="MoveMenuUp" type="Area2D" parent="EditControls" unique_id=80084451]
-collision_layer = 0
-collision_mask = 2048
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EditControls/MoveMenuUp" unique_id=1124549316]
-position = Vector2(122.5, 58)
-shape = SubResource("RectangleShape2D_1hek3")
-
-[node name="MoveMenuDown" type="Area2D" parent="EditControls" unique_id=972916920]
-position = Vector2(0, 720)
-collision_layer = 0
-collision_mask = 2048
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EditControls/MoveMenuDown" unique_id=1989521100]
-position = Vector2(122, -58)
-shape = SubResource("RectangleShape2D_1hek3")
-
-[node name="SpriteList" parent="EditControls" unique_id=92375247 instance=ExtResource("27_614d2")]
-z_index = 4065
-position = Vector2(486, 12)
+main = NodePath("../..")
 
 [node name="Chain" parent="." unique_id=1529719885 instance=ExtResource("19_mt1os")]
 z_index = 4096
@@ -758,47 +554,6 @@ anchor_top = 1.0
 anchor_bottom = 1.0
 grow_vertical = 0
 
-[node name="FileDialog" type="FileDialog" parent="." unique_id=213938103]
-oversampling_override = 1.0
-title = "Add Image"
-position = Vector2i(180, 160)
-size = Vector2i(515, 360)
-ok_button_text = "Open"
-mode_overrides_title = false
-file_mode = 0
-access = 1
-filters = PackedStringArray("*.png")
-
-[node name="ReplaceDialog" type="FileDialog" parent="." unique_id=2062953648]
-title = "Add Image"
-position = Vector2i(180, 160)
-size = Vector2i(360, 360)
-ok_button_text = "Open"
-mode_overrides_title = false
-file_mode = 0
-access = 1
-filters = PackedStringArray("*.png")
-
-[node name="SaveDialog" type="FileDialog" parent="." unique_id=1166238950]
-title = "Save Avatar"
-position = Vector2i(161, 160)
-size = Vector2i(392, 360)
-ok_button_text = "Save"
-mode_overrides_title = false
-access = 1
-filters = PackedStringArray("*.save")
-
-[node name="LoadDialog" type="FileDialog" parent="." unique_id=748376471]
-title = "Load Avatar"
-position = Vector2i(180, 160)
-size = Vector2i(360, 360)
-ok_button_text = "Open"
-mode_overrides_title = false
-file_mode = 0
-access = 1
-filters = PackedStringArray("*.save")
-show_hidden_files = true
-
 [node name="AudioFileDialog" type="FileDialog" parent="." unique_id=1301134203]
 oversampling_override = 1.0
 title = "Open a File"
@@ -813,19 +568,7 @@ filters = PackedStringArray("*.wav", "*.ogg", "*.mp3")
 [connection signal="pressed" from="StandardModeUILayer/MainUI/CreditsVBoxContainer/HBoxContainer/kofi" to="StandardModeUILayer/MainUI/CreditsVBoxContainer/HBoxContainer/kofi" method="_on_kofi_pressed"]
 [connection signal="pressed" from="StandardModeUILayer/MainUI/CreditsVBoxContainer/HBoxContainer2/kofi" to="StandardModeUILayer/MainUI/CreditsVBoxContainer/HBoxContainer2/kofi" method="_on_kofi_pressed"]
 [connection signal="pressed" from="StandardModeUILayer/MainUI/CreditsVBoxContainer/HBoxContainer3/kofi" to="StandardModeUILayer/MainUI/CreditsVBoxContainer/HBoxContainer3/kofi" method="_on_kofi_pressed"]
-[connection signal="pressed" from="EditControls/Add/addButton" to="." method="_on_add_button_pressed"]
-[connection signal="pressed" from="EditControls/Link/linkButton" to="." method="_on_link_button_pressed"]
-[connection signal="pressed" from="EditControls/Exit/Button2" to="." method="swapMode"]
-[connection signal="pressed" from="EditControls/Save/saveButton" to="." method="_on_save_button_pressed"]
-[connection signal="pressed" from="EditControls/Load/loadButton" to="." method="_on_load_button_pressed"]
-[connection signal="pressed" from="EditControls/ReplaceSprite/replaceButton" to="." method="_on_replace_button_pressed"]
-[connection signal="pressed" from="EditControls/DuplicateSprite/duplicateButton" to="." method="_on_duplicate_button_pressed"]
 [connection signal="bg_key_pressed" from="BackgroundInputCapture" to="." method="bgInputSprite"]
 [connection signal="bg_key_pressed" from="BackgroundInputCapture" to="." method="_on_background_input_capture_bg_key_pressed"]
 [connection signal="pressed" from="InfoPopupCanvasLayer/Tutorial/InfoButton" to="InfoPopupCanvasLayer/Tutorial" method="_on_button_pressed"]
-[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
-[connection signal="file_selected" from="ReplaceDialog" to="." method="_on_replace_dialog_file_selected"]
-[connection signal="visibility_changed" from="ReplaceDialog" to="." method="_on_replace_dialog_visibility_changed"]
-[connection signal="file_selected" from="SaveDialog" to="." method="_on_save_dialog_file_selected"]
-[connection signal="file_selected" from="LoadDialog" to="." method="_on_load_dialog_file_selected"]
 [connection signal="file_selected" from="AudioFileDialog" to="." method="_on_audio_file_dialog_file_selected"]

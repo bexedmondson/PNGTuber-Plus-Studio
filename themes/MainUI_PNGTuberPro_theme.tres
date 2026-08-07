@@ -1,8 +1,20 @@
 [gd_resource type="Theme" format=3 uid="uid://c2q5brmak80vn"]
 
 [ext_resource type="StyleBox" uid="uid://bkqp5jjorruax" path="res://themes/popup_bg_stylebox.tres" id="1_3nxjg"]
+[ext_resource type="FontFile" uid="uid://ukj8gv8ucqsg" path="res://font/goober_pixel.ttf" id="2_5yiyj"]
+[ext_resource type="Texture2D" uid="uid://23rqddatjku3" path="res://ui_scenes/mouse/tooltipBox.png" id="3_e6muv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7c054"]
+texture = ExtResource("3_e6muv")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
 
 [resource]
 HBoxContainer/constants/separation = 15
 PanelContainer/styles/panel = ExtResource("1_3nxjg")
+TooltipLabel/font_sizes/font_size = 32
+TooltipLabel/fonts/font = ExtResource("2_5yiyj")
+TooltipPanel/styles/panel = SubResource("StyleBoxTexture_7c054")
 VBoxContainer/constants/separation = 10

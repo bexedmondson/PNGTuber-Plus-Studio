@@ -57,7 +57,15 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot-streamdeck-addon/plugin.cfg")
+enabled=PackedStringArray("res://addons/GDTask/plugin.cfg", "res://addons/godot-streamdeck-addon/plugin.cfg")
+
+[global_group]
+
+filedialog="All nodes are file dialogs, can check this to see if any file dialog is open"
+
+[gui]
+
+theme/custom="uid://c2q5brmak80vn"
 
 [input]
 

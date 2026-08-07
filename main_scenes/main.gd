@@ -6,7 +6,8 @@ var editMode = true
 @export var originMotion : Node2D
 @export var origin : Node2D
 @export var camera : Camera2D
-@export var controlPanel : Node2D
+
+@export var mainUI : Control
 @export var editControls : Node2D 
 @export var tutorial : Control
 @export var spriteViewer : Control 
@@ -211,13 +212,13 @@ func isFileSystemOpen():
 func _notification(what):
 	match what:
 		SceneTree.NOTIFICATION_APPLICATION_FOCUS_OUT:
-			controlPanel.visible = false
+			mainUI.visible = false
 			pushUpdates.visible = false
 		SceneTree.NOTIFICATION_APPLICATION_FOCUS_IN:
 			if !editMode:
-				controlPanel.visible = true
+				mainUI.visible = true
 			pushUpdates.visible = true
-		30:
+		CanvasItem.NOTIFICATION_DRAW:
 			onWindowSizeChange()
 
 func onWindowSizeChange():
@@ -228,12 +229,12 @@ func onWindowSizeChange():
 	origin.position = s*0.5
 	
 	camera.position = origin.position
-	controlPanel.position = camera.position + (s/(camera.zoom*2.0))
-	tutorial.position = controlPanel.position
+	#mainUI.position = camera.position + (s/(camera.zoom*2.0))
+	#tutorial.position = controlPanel.position
 	editControls.position = camera.position - (s/(camera.zoom*2.0))
 	viewerArrows.position = editControls.position
 	spriteList.position.x = s.x - 233
-	pushUpdates.position.y = controlPanel.position.y
+	#pushUpdates.position.y = controlPanel.position.y
 	pushUpdates.position.x = editControls.position.x
 
 func zoomScene():
@@ -254,7 +255,7 @@ func zoomScene():
 	
 func changeZoom():
 	var newZoom = Vector2(1.0,1.0) / camera.zoom
-	controlPanel.scale = newZoom
+	#controlPanel.scale = newZoom
 	tutorial.scale = newZoom
 	editControls.scale = newZoom
 	viewerArrows.scale = newZoom
@@ -285,13 +286,15 @@ func swapMode():
 	if Global.backgroundColor.a != 0.0:
 		get_viewport().transparent_bg = false
 	RenderingServer.set_default_clear_color(Global.backgroundColor)
+	
 	#processing
 	editControls.set_process(editMode)
-	controlPanel.set_process(!editMode)
+	mainUI.set_process(!editMode)
+	
 	#visibility
 	editControls.visible = editMode
 	tutorial.visible = editMode
-	controlPanel.visible = !editMode
+	mainUI.visible = !editMode
 	lines.visible = editMode
 	spriteList.visible = editMode
 	

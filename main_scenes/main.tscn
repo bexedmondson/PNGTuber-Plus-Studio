@@ -87,12 +87,12 @@ shadow_color = Color(0, 0, 0, 0.835294)
 font = ExtResource("14_62jp4")
 font_size = 31
 
-[node name="Main" type="Node2D" unique_id=60720459 node_paths=PackedStringArray("originMotion", "origin", "camera", "controlPanel", "editControls", "tutorial", "spriteViewer", "viewerArrows", "spriteList", "fileDialog", "replaceDialog", "saveDialog", "loadDialog", "audioDialog", "lines", "settingsMenu", "pushUpdates", "shadow", "volumeSlider", "sensitiveSlider", "failedToAddSpriteMessage", "zoomLabel", "screenCoverCollisionShape2D", "arrowsDown", "arrowsUp", "areaMoveEditMenuUp", "areaMoveEditMenuDown")]
+[node name="Main" type="Node2D" unique_id=60720459 node_paths=PackedStringArray("originMotion", "origin", "camera", "mainUI", "editControls", "tutorial", "spriteViewer", "viewerArrows", "spriteList", "fileDialog", "replaceDialog", "saveDialog", "loadDialog", "audioDialog", "lines", "settingsMenu", "pushUpdates", "shadow", "volumeSlider", "sensitiveSlider", "failedToAddSpriteMessage", "zoomLabel", "screenCoverCollisionShape2D", "arrowsDown", "arrowsUp", "areaMoveEditMenuUp", "areaMoveEditMenuDown")]
 script = ExtResource("1_06alx")
 originMotion = NodePath("OriginMotion")
 origin = NodePath("OriginMotion/Origin")
 camera = NodePath("Camera2D")
-controlPanel = NodePath("ControlPanel")
+mainUI = NodePath("StandardModeUILayer/MainUI")
 editControls = NodePath("EditControls")
 tutorial = NodePath("InfoPopupCanvasLayer/Tutorial")
 spriteViewer = NodePath("EditControls/SpriteViewer")
@@ -167,10 +167,6 @@ position = Vector2(-200, -28)
 
 [node name="Origin" type="Node2D" parent="OriginMotion" unique_id=1307070058]
 position = Vector2(360, 360)
-
-[node name="ControlPanel" type="Node2D" parent="." unique_id=546810505]
-z_index = 4090
-position = Vector2(720, 720)
 
 [node name="StandardModeUILayer" type="CanvasLayer" parent="." unique_id=1408062257]
 

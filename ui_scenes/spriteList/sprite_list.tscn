@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://gaijtw7euy5g"]
+
+[ext_resource type="Script" uid="uid://dewmbqfbdoj4e" path="res://ui_scenes/spriteList/sprite_list.gd" id="1_qfc4s"]
+[ext_resource type="Texture2D" uid="uid://23rqddatjku3" path="res://ui_scenes/mouse/tooltipBox.png" id="2_pt0te"]
+[ext_resource type="Texture2D" uid="uid://barmp2x5i3kn0" path="res://ui_scenes/spriteList/eyes.png" id="3_m71px"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2wjy"]
+size = Vector2(230, 630)
+
+[node name="SpriteList" type="Node2D" unique_id=371432789]
+script = ExtResource("1_qfc4s")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=819558654]
+visible = false
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 226.0
+offset_bottom = 626.0
+texture = ExtResource("2_pt0te")
+region_rect = Rect2(0, 0, 48, 48)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=2020424106]
+visible = false
+offset_right = 221.0
+offset_bottom = 622.0
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=1666657047]
+layout_mode = 2
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=914183064]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=2086900196]
+position = Vector2(111, 311)
+shape = SubResource("RectangleShape2D_h2wjy")
+disabled = true
+
+[node name="Eyes" type="Sprite2D" parent="." unique_id=1882792821]
+position = Vector2(209, 12)
+texture = ExtResource("3_m71px")
+hframes = 2
+frame = 1
+
+[node name="toggleVisibility" type="Button" parent="Eyes" unique_id=819219772]
+offset_left = -13.0
+offset_top = -14.0
+offset_right = 14.0
+offset_bottom = 13.0
+flat = true
+
+[connection signal="pressed" from="Eyes/toggleVisibility" to="." method="_on_toggle_visibility_pressed"]
